@@ -53,7 +53,6 @@
   .login-card { background: var(--surface-card); border: 1px solid var(--border); border-radius: 24px; padding: 40px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
 
   /* --- ICONOS DE CAMPO DELINEADOS Y MINIMALISTAS --- */
-  /* Wrapper que posiciona el icono SVG dentro del input */
   .field-icon-wrap { position: relative; display: flex; align-items: center; }
   .field-icon-wrap input { padding-left: 42px; }
   .field-icon-wrap .field-icon {
@@ -66,7 +65,6 @@
     flex-shrink: 0;
     transition: color 0.2s;
   }
-  /* El icono hereda el color del acento cuando el campo está en foco */
   .field-icon-wrap:focus-within .field-icon { color: var(--accent); }
 
   /* Topbar Roles */
@@ -76,21 +74,17 @@
 
   .app-container { display: flex; min-height: calc(100vh - 53px); }
   
-  /* Sidebar — icon rail estilo Instagram: espacioso, limpio, con áreas de toque generosas */
+  /* Sidebar — icon rail estilo Instagram */
   .sidebar { width: 88px; background: var(--surface); border-right: 1px solid var(--border); padding: 28px 12px; display: flex; flex-direction: column; flex-shrink: 0; align-items: center; }
   .brand { display: flex; align-items: center; justify-content: center; padding-bottom: 28px; border-bottom: 1px solid var(--border); margin-bottom: 28px; width: 100%; }
 
   .nav-menu { list-style: none; display: flex; flex-direction: column; gap: 8px; width: 100%; align-items: center; }
-  /* Cada ítem: cuadrado redondeado de 52 × 52 px — mismo lenguaje visual que Instagram */
   .nav-item { width: 52px; height: 52px; border-radius: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.18s, color 0.18s, transform 0.15s; color: var(--text-muted); position: relative; }
   .nav-item:hover  { background: rgba(255,255,255,0.07); color: var(--text); transform: scale(1.06); }
   .nav-item.active { background: rgba(244,121,32,0.14); color: var(--accent); }
-  /* Punto indicador debajo del icono activo */
   .nav-item.active::before { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; background: var(--accent); border-radius: 50%; }
-  /* Tooltip contextual a la derecha — mismo patrón que versión anterior */
   .nav-item::after { content: attr(data-tooltip); position: absolute; left: calc(100% + 16px); top: 50%; transform: translateY(-50%); background: var(--surface-card); border: 1px solid var(--border); color: var(--text); font-size: 12px; font-family: var(--font-sans); font-weight: 500; padding: 6px 12px; border-radius: 8px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 9999; }
   .nav-item:hover::after { opacity: 1; }
-  /* Icono SVG 22 × 22 px — hereda color del nav-item para efecto naranja automático */
   .nav-icon { width: 22px; height: 22px; flex-shrink: 0; }
 
   /* Main Area */
@@ -122,7 +116,6 @@
   .form-group { margin-bottom: 14px; display: flex; flex-direction: column; gap: 6px; }
   label { font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
   
-  /* Campos con fondo sutil, padding consistente y transición suave */
   input, select, textarea { 
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border); 
@@ -134,7 +127,6 @@
       width: 100%;
       transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
   }
-  /* Foco con glow naranja corporativo — mismo acento que el logo */
   input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: var(--accent);
@@ -142,19 +134,15 @@
       box-shadow: 0 0 0 3px rgba(244,121,32,0.12);
   }
   input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
-  /* E4 — Dark mode fix: opciones del select con fondo correcto en todos los navegadores */
   select option { background: var(--surface-card); color: var(--text); }
 
   /* --- SISTEMA DE LOGO FF ESCALABLE --- */
-  /* El mismo lenguaje visual que la welcome screen, en dos tamaños reutilizables */
   .ff-logo { display: flex; align-items: center; justify-content: center; }
   .ff-logo .f-letter { font-family: var(--font-sans); font-weight: 900; line-height: 1; color: #fff; display: inline-block; }
   .ff-logo .f-letter.mirror { transform: scaleX(-1); }
   .ff-logo svg.dumbbell { flex-shrink: 0; }
-  /* Variante Login — mediana */
   .ff-logo-lg .f-letter { font-size: 68px; letter-spacing: -3px; }
   .ff-logo-lg svg.dumbbell { width: 26px; height: 52px; margin: 0 -8px; position: relative; z-index: 1; }
-  /* Variante Sidebar — pequeña */
   .ff-logo-sm .f-letter { font-size: 36px; letter-spacing: -2px; }
   .ff-logo-sm svg.dumbbell { width: 14px; height: 28px; margin: 0 -4px; position: relative; z-index: 1; }
   
@@ -220,11 +208,10 @@
   .video-close { position: absolute; top: 16px; right: 20px; font-size: 24px; color: var(--text-muted); cursor: pointer; }
   .video-placeholder-frame { background: #000; border: 1px solid var(--border); border-radius: 8px; width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); position: relative; overflow: hidden; margin-bottom: 15px;}
 </style>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="mode-coach"> 
 
-<!-- PANTALLA DE BIENVENIDA ESTÉTICA -->
 <div id="welcome-screen">
   <div class="logo-container">
     <span class="letter-f">F</span>
@@ -236,7 +223,6 @@
   <button class="btn-welcome" onclick="ingresarFlujoLogin()">Ingresar a la Plataforma</button>
 </div>
 
-<!-- FORMULARIO DE ACCESO (LOGIN) -->
 <div class="login-screen" id="app-login-screen">
   <div class="login-card">
     <div class="ff-logo ff-logo-lg" style="margin: 0 auto 32px auto;">
@@ -255,7 +241,6 @@
       <div class="form-group" style="text-align:left;">
         <label>Email (Coach) · Nombre (Atleta)</label>
         <div class="field-icon-wrap">
-          <!-- Icono usuario: delineado, sin relleno, trazo mínimo -->
           <svg class="field-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="8" cy="5.5" r="2.5"/>
             <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
@@ -266,7 +251,6 @@
       <div class="form-group" style="text-align:left; margin-bottom: 24px;">
         <label>Contraseña Acceso</label>
         <div class="field-icon-wrap">
-          <!-- Icono candado: delineado, sin relleno, trazo mínimo -->
           <svg class="field-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="7.5" width="10" height="7.5" rx="1.5"/>
             <path d="M5 7.5V5a3 3 0 0 1 6 0v2.5"/>
@@ -384,7 +368,6 @@
               <button class="btn btn-danger" onclick="removeLastPlanDay()">－ Eliminar Último Día</button>
             </div>
           </div>
-
           <div style="margin-bottom: 24px; padding: 16px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px;">
             <h3 style="font-family:var(--font-display); font-size:15px; color:#fff;">Distribución Semanal del Mesociclo de Carga</h3>
             <div class="mesocycle-grid">
@@ -394,263 +377,214 @@
               <div class="week-card"><h4>Semana 4</h4><div class="form-group"><label>Carga</label><input type="text" class="meso-input coach-only-ui" id="meso-s4"><div class="ex-disabled-alumno info-s4" style="font-weight:bold;"></div></div></div>
             </div>
           </div>
-
           <div class="plan-horizontal-scroll" id="plan-days-container"></div>
-          <button class="btn" style="margin-top:20px; width:100%;" onclick="guardarPlanificacionCompleta()">Almacenar y Sincronizar Cambios de Carga</button>
+          <button class="btn coach-only-ui" style="margin-top:20px; width:100%;" onclick="guardarPlanificacionEstructurada()">Sincronizar Planificación de Carga</button>
         </div>
       </div>
     </section>
 
     <section id="view-evaluaciones" class="view-section">
-      <h2>Diagnóstico Funcional, De Fuerza &amp; Saltabilidad Neuromuscular</h2>
-      <div id="eval-view-error" class="card"><p style="color:var(--text-muted); text-align:center;">No existen atletas cargados en el sistema.</p></div>
-      
-      <div id="eval-view-content" style="display:none;">
-        <div class="card" style="padding: 16px 24px; margin-bottom: 16px;" class="coach-only-ui">
-          <div class="form-group" style="width: 300px; margin-bottom:0;" id="eval-selector-box-container">
-            <label>Atleta en Plataforma / Dinamómetro:</label>
-            <select id="eval-alumno-select" onchange="cambiarAtletaEvaluacion()"></select>
-          </div>
+      <h2>Laboratorio Biomecánico y Diagnóstico Funcional</h2>
+      <div class="card">
+        <div class="form-group" style="width:300px; margin-bottom:0;" id="eval-atleta-selector-box">
+          <label>Deportista Evaluado</label>
+          <select id="eval-alumno-select" onchange="cargarScreeningEnPantalla(); cargarHistorialEvaluacionesAtleta();"></select>
         </div>
+      </div>
+      <div class="tab-container">
+        <button class="tab-btn active" id="btn-tab-dina" onclick="switchSubTab('dina')">Dinamometría Isométrica Máxima</button>
+        <button class="tab-btn" id="btn-tab-axon" onclick="switchSubTab('axon')">Alfombrilla de Contacto (Axon Jump)</button>
+        <button class="tab-btn" id="btn-tab-fms" onclick="switchSubTab('fms')">Screening Funcional y Rangos Articulares</button>
+        <button class="tab-btn" id="btn-tab-fatiga" onclick="switchSubTab('fatiga')">Test Intermitente de Fatiga (5x5s)</button>
+      </div>
 
-        <div class="tab-container">
-          <button class="tab-btn active" id="btn-tab-dina" onclick="switchSubTab('dina')">
-            <!-- Onda de fuerza pico: señal de dinamómetro / RFD -->
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;"><polyline points="1,12 4,12 5.5,4 7.5,12 9.5,12"/><line x1="9.5" y1="12" x2="15" y2="12"/></svg>
-            Isometría Máxima (Fuerza Pico &amp; RFD)
-          </button>
-          <button class="tab-btn" id="btn-tab-axon" onclick="switchSubTab('axon')">
-            <!-- Figura en salto: saltabilidad neuromuscular -->
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;"><circle cx="8" cy="2.5" r="1.5"/><path d="M5.5 11.5l2.5-5.5 2.5 5.5"/><path d="M6.5 9l-2 3"/><path d="M9.5 9l2 3"/><line x1="4" y1="15" x2="12" y2="15"/></svg>
-            Axon Jump &amp; Índice Elasticidad
-          </button>
-          <button class="tab-btn" id="btn-tab-funcional" onclick="switchSubTab('funcional')">
-            <!-- Triángulo con línea de referencia: ángulo funcional / evaluación postural -->
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;"><path d="M2 14L8 2l6 12z"/><line x1="5.5" y1="10" x2="10.5" y2="10" stroke-dasharray="2 1.5"/></svg>
-            Laboratorio de Evaluación Funcional
-          </button>
-          <button class="tab-btn" id="btn-tab-fatiga" onclick="switchSubTab('fatiga')">
-            <!-- Cronómetro: protocolo intermitente temporizado -->
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;"><circle cx="8" cy="9.5" r="5.5"/><path d="M8 7v2.5l2 1.5"/><line x1="6" y1="1.5" x2="10" y2="1.5"/><line x1="8" y1="1.5" x2="8" y2="3.5"/><line x1="13.5" y1="3.5" x2="15" y2="2"/></svg>
-            Test Intermitente de Fatiga (5x5s)
-          </button>
-        </div>
-
-        <div id="tab-dina" class="tab-content active">
-          <div class="grid-2">
-            <div class="card">
-              <div class="card-title">Entrada de Datos Dinamómetro</div>
-              <div class="coach-only-ui">
-                <div class="form-group"><label>Grupo Muscular</label><select id="eva-dina-grupo"><option value="Cuadriceps">Cuádriceps</option><option value="Isquios">Isquiotibiales</option></select></div>
-                <div class="grid-2" style="grid-template-columns: 1fr 1fr; gap: 12px;">
-                  <div>
-                    <p style="font-size:11px; color:var(--accent-blue); margin-bottom:6px;">HEMISFERIO DERECHO</p>
-                    <div class="form-group"><label>Fza. Pico (Kg)</label><input type="number" step="0.01" id="eva-dina-pd" value="0"></div>
-                    <div class="form-group"><label>RFD (Kg/s)</label><input type="number" step="0.01" id="eva-dina-rfdd" value="0"></div>
-                  </div>
-                  <div>
-                    <p style="font-size:11px; color:var(--accent-red); margin-bottom:6px;">HEMISFERIO IZQUIERDO</p>
-                    <div class="form-group"><label>Fza. Pico (Kg)</label><input type="number" step="0.01" id="eva-dina-pi" value="0"></div>
-                    <div class="form-group"><label>RFD (Kg/s)</label><input type="number" step="0.01" id="eva-dina-rfdi" value="0"></div>
-                  </div>
-                </div>
-                <button class="btn" style="width:100%;" onclick="guardarIsometriaMaxima()">Procesar Simetrías Isométricas</button>
-              </div>
-              <div class="ex-disabled-alumno"><p style="color:var(--text-muted); font-size:13px;">Datos gestionados en laboratorio por Franco Flores.</p></div>
-            </div>
-            <div class="card">
-              <div class="card-title">Análisis Automatizado de Simetrías Dinámicas</div>
-              <div id="dina-analisis-vacio" style="color:var(--text-muted); text-align:center; padding:30px 0;">Esperando captura...</div>
-              <div id="dina-analisis-resultado" style="display:none;">
-                <div style="margin-bottom:14px;"><label>Déficit de Fuerza Pico:</label><div style="display:flex; align-items:center; gap:12px;"><span id="asim-pico-badge" class="badge">0%</span><p id="asim-pico-txt" style="font-size:13px; font-weight:500;"></p></div></div>
-                <div style="margin-bottom:14px; border-top: 1px solid var(--border); padding-top:10px;"><label>Déficit Exclusivo de RFD:</label><div style="display:flex; align-items:center; gap:12px;"><span id="asim-rfd-badge" class="badge">0%</span><p id="asim-rfd-txt" style="font-size:13px; font-weight:500;"></p></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="tab-axon" class="tab-content">
-          <div class="grid-2">
-            <div class="card">
-              <div class="card-title">Módulo de Saltabilidad Neuromuscular (Axon Jump)</div>
-              <div class="coach-only-ui">
-                <div class="form-group"><label>Tipo de Salto Registrado</label><select id="axon-tipo-salto"><option value="Squat Jump">Squat Jump (Fuerza Explosiva Pura)</option><option value="CMJ">Countermovement Jump (CEA Corto)</option></select></div>
-                <div class="form-group"><label>Tiempo de Vuelo (ms)</label><input type="number" id="axon-vuelo" value="0"></div>
-                <button class="btn" style="width:100%; margin-top:10px;" onclick="guardarSaltoAxon()">Procesar Salto e Índice</button>
-              </div>
-              <div class="ex-disabled-alumno"><p style="color:var(--text-muted); font-size:13px;">Registros biométricos procesados con alfombra cinemática.</p></div>
-            </div>
-            <div class="card">
-              <div class="card-title">Métricas Estructurales de Salto</div>
-              <div id="axon-resultado-box" style="text-align:center; padding:5px 0;">
-                <p style="font-size:11px; font-family:var(--font-mono); color:var(--text-muted); text-transform:uppercase;">Última Altura Calculada</p>
-                <h1 id="axon-calc-altura" style="font-family:var(--font-display); font-size:44px; color:var(--accent-green); margin-bottom:15px;">0.00 <span style="font-size:18px;">cm</span></h1>
-                
-                <div style="border-top:1px solid var(--border); padding-top:15px; text-align:left;">
-                  <label>Índice de Elasticidad Relativo (IE %):</label>
-                  <div style="display:flex; align-items:center; gap:12px; margin-top:5px;">
-                    <span id="axon-ie-badge" class="badge badge-info">0.0%</span>
-                    <p id="axon-ie-txt" style="font-size:13px; font-weight:500; color:var(--text-muted);">Requiere perfil completo (SJ & CMJ)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="tab-funcional" class="tab-content">
+      <div id="tab-dina" class="tab-content active">
+        <div class="grid-2">
           <div class="card">
-            <div class="card-title">Batería Funcional Cualicuantitativa (Escala de Screening 1 a 5)</div>
-            <div class="grid-functional">
-              
-              <div class="week-card">
-                <h4 style="color:var(--accent-green);">1. Complejos Globales</h4>
-                <div class="form-group" style="margin-top:10px;"><label>Sentadilla de Arranque (OHS)</label>
-                  <select id="fms-ohs" class="fms-select"><option value="1">1 - Restricción Severa / Dolor</option><option value="2">2 - Compensación Mayor</option><option value="3">3 - Compensación Mínima</option><option value="4">4 - Movilidad Eficiente</option><option value="5">5 - Patrón Óptimo Élite</option></select>
-                </div>
-                <div class="form-group"><label>Sentadilla Unipodal (SLS) - Izq</label>
-                  <select id="fms-sls-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Sentadilla Unipodal (SLS) - Der</label>
-                  <select id="fms-sls-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-              </div>
-
-              <div class="week-card">
-                <h4 style="color:var(--accent-blue);">2. Lombo-Pélvico-Cadera</h4>
-                <div class="form-group" style="margin-top:10px;"><label>Test de Thomas - Izq</label>
-                  <select id="fms-thomas-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Test de Thomas - Der</label>
-                  <select id="fms-thomas-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Rotadores Cadera Internos - Izq</label>
-                  <select id="fms-rot-int-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Rotadores Cadera Internos - Der</label>
-                  <select id="fms-rot-int-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Rotadores Cadera Externos - Izq</label>
-                  <select id="fms-rot-ext-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Rotadores Cadera Externos - Der</label>
-                  <select id="fms-rot-ext-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-              </div>
-
-              <div class="week-card">
-                <h4 style="color:var(--accent-orange);">3. Cadena Posterior (Isquios)</h4>
-                <div class="form-group" style="margin-top:10px;"><label>Wells and Dillon (Global)</label>
-                  <select id="fms-wells" class="fms-select"><option value="5">5 - Flexibilidad Sobresaliente</option><option value="4">4 - Rango Completo Sin Estrés</option><option value="3">3 - Alcanza Plano Neutro</option><option value="2">2 - Restricción Moderada</option><option value="1">1 - Acortamiento Severo</option></select>
-                </div>
-                <div class="form-group"><label>Isquios Extensión 90° - Izq</label>
-                  <select id="fms-isq-i" class="fms-select"><option value="5">5 - Óptimo (Llega)</option><option value="2">2 - Reducido (No llega)</option></select>
-                </div>
-                <div class="form-group"><label>Isquios Extensión 90° - Der</label>
-                  <select id="fms-isq-d" class="fms-select"><option value="5">5 - Óptimo (Llega)</option><option value="2">2 - Reducido (No llega)</option></select>
-                </div>
-              </div>
-
-              <div class="week-card">
-                <h4 style="color:var(--accent-red);">4. Tobillo & Hombro</h4>
-                <div class="form-group" style="margin-top:10px;"><label>Test de Lunge (Tobillo) - Izq</label>
-                  <select id="fms-lunge-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Test de Lunge (Tobillo) - Der</label>
-                  <select id="fms-lunge-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Rotadores Hombro Internos - Izq</label>
-                  <select id="fms-homb-int-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Rotadores Hombro Internos - Der</label>
-                  <select id="fms-homb-int-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Rotadores Hombro Externos - Izq</label>
-                  <select id="fms-homb-ext-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-                <div class="form-group"><label>Rotadores Hombro Externos - Der</label>
-                  <select id="fms-homb-ext-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
-                </div>
-              </div>
-
-            </div>
-            <button class="btn coach-only-ui" style="width:100%; margin-top:20px; background:var(--accent-green); color:#000;" onclick="guardarScreeningFuncional()">Sincronizar y Mapear Screening Funcional</button>
-          </div>
-        </div>
-
-        <div id="tab-fatiga" class="tab-content">
-          <div class="card">
-            <div class="card-title">Protocolo de Fatiga en Isometría Intermitente (5x5s)</div>
+            <div class="card-title">Entrada de Datos Dinamómetro</div>
             <div class="coach-only-ui">
-              <div class="grid-2" style="gap:24px;">
+              <div class="form-group"><label>Grupo Muscular</label><select id="eva-dina-grupo"><option value="Cuadriceps">Cuádriceps</option><option value="Isquios">Isquiotibiales</option></select></div>
+              <div class="grid-2" style="grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div>
-                  <p style="font-size:12px; color:var(--accent-blue); margin-bottom:10px;">SERIE PIERNA DERECHA (Kg)</p>
-                  <div class="grid-5reps">
-                    <div><label>R1</label><input type="number" id="f-d-r1" value="0"></div>
-                    <div><label>R2</label><input type="number" id="f-d-r2" value="0"></div>
-                    <div><label>R3</label><input type="number" id="f-d-r3" value="0"></div>
-                    <div><label>R4</label><input type="number" id="f-d-r4" value="0"></div>
-                    <div><label>R5</label><input type="number" id="f-d-r5" value="0"></div>
-                  </div>
+                  <p style="font-size:11px; color:var(--accent-blue); margin-bottom:6px;">HEMISFERIO DERECHO</p>
+                  <div class="form-group"><label>Fza. Pico (Kg)</label><input type="number" step="0.01" id="eva-dina-pd" value="0"></div>
+                  <div class="form-group"><label>RFD (Kg/s)</label><input type="number" step="0.01" id="eva-dina-rfdd" value="0"></div>
                 </div>
                 <div>
-                  <p style="font-size:12px; color:var(--accent-red); margin-bottom:10px;">SERIE PIERNA IZQUIERDA (Kg)</p>
-                  <div class="grid-5reps">
-                    <div><label>R1</label><input type="number" id="f-i-r1" value="0"></div>
-                    <div><label>R2</label><input type="number" id="f-i-r2" value="0"></div>
-                    <div><label>R3</label><input type="number" id="f-i-r3" value="0"></div>
-                    <div><label>R4</label><input type="number" id="f-i-r4" value="0"></div>
-                    <div><label>R5</label><input type="number" id="f-i-r5" value="0"></div>
-                  </div>
+                  <p style="font-size:11px; color:var(--accent-red); margin-bottom:6px;">HEMISFERIO IZQUIERDO</p>
+                  <div class="form-group"><label>Fza. Pico (Kg)</label><input type="number" step="0.01" id="eva-dina-pi" value="0"></div>
+                  <div class="form-group"><label>RFD (Kg/s)</label><input type="number" step="0.01" id="eva-dina-rfdi" value="0"></div>
                 </div>
               </div>
-              <button class="btn" style="width:100%; margin-top:15px;" onclick="calcularYGuardarFatiga5x5()">Ejecutar Análisis de Fatiga Neuromuscular</button>
+              <button class="btn" style="width:100%;" onclick="guardarIsometriaMaxima()">Procesar Simetría Vectorial</button>
             </div>
-            <div id="resultado-fatiga-completo" style="margin-top:20px; display:none;">
-              <div class="grid-2">
-                <div class="week-card"><p style="color:var(--accent-blue); font-weight:bold;">MIEMBRO DERECHO</p><div style="font-size:13px; margin-top:6px;">Índice de Fatiga Real: <b id="fat-d-porcentaje" style="color:var(--accent-red)">0%</b></div></div>
-                <div class="week-card"><p style="color:var(--accent-red); font-weight:bold;">MIEMBRO IZQUIERDO</p><div style="font-size:13px; margin-top:6px;">Índice de Fatiga Real: <b id="fat-i-porcentaje" style="color:var(--accent-red)">0%</b></div></div>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; justify-content:center;">
+            <div class="card-title">Análisis de Índices Asimétricos</div>
+            <div style="margin-bottom:15px;">Déficit de Fuerza Máxima Lateral: <span id="asim-pico-badge" class="badge">0%</span> <b id="asim-pico-txt" style="font-size:13px; margin-left:8px; color:var(--text-muted);">---</b></div>
+            <div>Déficit de Tasa de Desarrollo (RFD): <span id="asim-rfd-badge" class="badge">0%</span> <b id="asim-rfd-txt" style="font-size:13px; margin-left:8px; color:var(--text-muted);">---</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-axon" class="tab-content">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">Protocolos de Salto Vertical</div>
+            <div class="coach-only-ui">
+              <div class="form-group"><label>Fórmula del Test</label><select id="axon-tipo-salto"><option value="SJ (Squat Jump)">SJ (Squat Jump) - Reclutamiento Puro</option><option value="CMJ (Countermovement)">CMJ (Countermovement) - CEA Activo</option><option value="DJ (Drop Jump)">DJ (Drop Jump) - stiffness</option></select></div>
+              <div class="form-group"><label>Tiempo de Vuelo Medido (ms)</label><input type="number" id="axon-vuelo" placeholder="Ej: 520"></div>
+              <button class="btn" style="width:100%;" onclick="guardarSaltoAxon()">Calcular Altura Cinemática</button>
+            </div>
+          </div>
+          <div class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            <p style="font-family:var(--font-mono); font-size:12px; color:var(--accent); text-transform:uppercase;">Altura de Despegue Estimada</p>
+            <h1 id="axon-calc-altura" style="font-family:var(--font-display); font-size:64px; color:#fff; margin:10px 0;">0.00 <span style="font-size:24px;">cm</span></h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-fms" class="tab-content">
+        <div class="card">
+          <div class="card-title">Matriz Multiaxial de Movilidad Articular</div>
+          <div class="grid-functional">
+            <div class="week-card">
+              <h4 style="color:var(--accent);">1. Cadena Cerrada Completa</h4>
+              <div class="form-group" style="margin-top:10px;"><label>Sentadilla de Arranque (OHS)</label>
+                <select id="fms-ohs" class="fms-select"><option value="3">3 - Óptimo Sin Compensación</option><option value="2">2 - Compensación Mecánica</option><option value="1">1 - Restricción Severa / Dolor</option></select>
+              </div>
+              <div class="form-group"><label>Sentadilla Unipodal (SLS) - Izq</label>
+                <select id="fms-sls-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Sentadilla Unipodal (SLS) - Der</label>
+                <select id="fms-sls-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+            </div>
+            <div class="week-card">
+              <h4 style="color:var(--accent-blue);">2. Lombo-Pélvico-Cadera</h4>
+              <div class="form-group" style="margin-top:10px;"><label>Test de Thomas - Izq</label>
+                <select id="fms-thomas-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Test de Thomas - Der</label>
+                <select id="fms-thomas-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Rotadores Cadera Internos - Izq</label>
+                <select id="fms-rot-int-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Rotadores Cadera Internos - Der</label>
+                <select id="fms-rot-int-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Rotadores Cadera Externos - Izq</label>
+                <select id="fms-rot-ext-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Rotadores Cadera Externos - Der</label>
+                <select id="fms-rot-ext-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+            </div>
+            <div class="week-card">
+              <h4 style="color:var(--accent-green);">3. Distal e Isquios</h4>
+              <div class="form-group" style="margin-top:10px;"><label>Test de Wells (Sit &amp; Reach)</label>
+                <select id="fms-wells" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Ángulo Isquios (Elevación Pierna) - Izq</label>
+                <select id="fms-isq-i" class="fms-select"><option value="5">5 - (>90º)</option><option value="4">4 - (80º-90º)</option><option value="3">3 - (70º-80º)</option><option value="2">2 - Cortos (60-70º)</option><option value="1">1 - Críticos (<60º)</option></select>
+              </div>
+              <div class="form-group"><label>Ángulo Isquios (Elevación Pierna) - Der</label>
+                <select id="fms-isq-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Dorsiflexión Tobillo (Lunge) - Izq</label>
+                <select id="fms-lunge-i" class="fms-select"><option value="3">3 - (>12cm / Fiel)</option><option value="2">2 - Limitado (5-11cm)</option><option value="1">1 - Bloqueo Talón (<5cm)</option></select>
+              </div>
+              <div class="form-group"><label>Dorsiflexión Tobillo (Lunge) - Der</label>
+                <select id="fms-lunge-d" class="fms-select"><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+            </div>
+            <div class="week-card">
+              <h4 style="color:var(--accent-orange);">4. Complejo Escápulo-Humeral</h4>
+              <div class="form-group" style="margin-top:10px;"><label>Rot. Interna Hombro - Izq</label>
+                <select id="fms-homb-int-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Rot. Interna Hombro - Der</label>
+                <select id="fms-homb-int-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Rot. Externa Hombro - Izq</label>
+                <select id="fms-homb-ext-i" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
+              </div>
+              <div class="form-group"><label>Rot. Externa Hombro - Der</label>
+                <select id="fms-homb-ext-d" class="fms-select"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select>
               </div>
             </div>
           </div>
+          <button class="btn coach-only-ui" style="width:100%; margin-top:20px;" onclick="guardarScreeningFuncionalCompleto()">Guardar y Sincronizar Screening de Movilidad</button>
         </div>
+      </div>
 
+      <div id="tab-fatiga" class="tab-content">
         <div class="card">
-          <div class="card-title">Historial Diagnóstico de Evaluaciones</div>
-          <table>
-            <thead><tr><th>Fecha</th><th>Tipo de Test</th><th>Músculo/Gesto</th><th>Métricas</th><th>Diagnóstico</th></tr></thead>
-            <tbody id="tabla-historial-eval"></tbody>
-          </table>
+          <div class="card-title">Carga Mecánica e Índice de Fatiga Neuromuscular</div>
+          <div class="coach-only-ui">
+            <div class="grid-2">
+              <div>
+                <p style="font-size:12px; color:var(--accent-blue); margin-bottom:10px;">SERIE PIERNA DERECHA (Kg)</p>
+                <div class="grid-5reps">
+                  <div><label>R1</label><input type="number" id="f-d-r1" value="0"></div>
+                  <div><label>R2</label><input type="number" id="f-d-r2" value="0"></div>
+                  <div><label>R3</label><input type="number" id="f-d-r3" value="0"></div>
+                  <div><label>R4</label><input type="number" id="f-d-r4" value="0"></div>
+                  <div><label>R5</label><input type="number" id="f-d-r5" value="0"></div>
+                </div>
+              </div>
+              <div>
+                <p style="font-size:12px; color:var(--accent-red); margin-bottom:10px;">SERIE PIERNA IZQUIERDA (Kg)</p>
+                <div class="grid-5reps">
+                  <div><label>R1</label><input type="number" id="f-i-r1" value="0"></div>
+                  <div><label>R2</label><input type="number" id="f-i-r2" value="0"></div>
+                  <div><label>R3</label><input type="number" id="f-i-r3" value="0"></div>
+                  <div><label>R4</label><input type="number" id="f-i-r4" value="0"></div>
+                  <div><label>R5</label><input type="number" id="f-i-r5" value="0"></div>
+                </div>
+              </div>
+            </div>
+            <button class="btn" style="width:100%; margin-top:15px;" onclick="calcularYGuardarFatiga5x5()">Ejecutar Análisis de Fatiga Neuromuscular</button>
+          </div>
+          <div id="resultado-fatiga-completo" style="margin-top:20px; display:none;">
+            <div class="grid-2">
+              <div class="week-card"><p style="color:var(--accent-blue); font-weight:bold;">MIEMBRO DERECHO</p><div style="font-size:13px; margin-top:6px;">Índice de Fatiga Real: <b id="fat-d-porcentaje" style="color:var(--accent-red)">0%</b></div></div>
+              <div class="week-card"><p style="color:var(--accent-red); font-weight:bold;">MIEMBRO IZQUIERDO</p><div style="font-size:13px; margin-top:6px;">Índice de Fatiga Real: <b id="fat-i-porcentaje" style="color:var(--accent-red)">0%</b></div></div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Historial Diagnóstico del Atleta</div>
+        <table>
+          <thead><tr><th>Fecha</th><th>Protocolo</th><th>Gesto / Zona</th><th>Métricas Obtención</th><th>Conclusión Diagnóstica</th></tr></thead>
+          <tbody id="tabla-historial-evaluaciones"></tbody>
+        </table>
       </div>
     </section>
 
     <section id="view-calendario" class="view-section">
-      <h2>Calendario de Monitoreo & Control de Cargas Internas (RPE)</h2>
-      <div id="cal-view-error" class="card"><p style="color:var(--text-muted); text-align:center;">No existen atletas cargados en el sistema.</p></div>
-      
-      <div id="cal-view-content" style="display:none;" class="grid-2">
+      <h2>Calendario de Monitoreo RPE y Fatiga Percibida</h2>
+      <div class="grid-2" style="grid-template-columns: 1.2fr 0.8fr;">
         <div class="card">
-          <div class="card-title">Asistencias del Mes en Curso Interactivo</div>
           <div class="single-month-calendar">
-            <div class="month-title" id="calendar-current-month-title">Mes Actual 2026</div>
-            <div class="days-grid-header"><div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div><div>D</div></div>
-            <div class="days-grid" id="calendar-current-month-grid"></div>
+            <div class="month-title" id="calendar-month-year-title">---</div>
+            <div class="days-grid-header"><div>LUN</div><div>MAR</div><div>MIÉ</div><div>JUE</div><div>VIE</div><div>SÁB</div><div>DOM</div></div>
+            <div class="days-grid" id="calendar-days-grid-target"></div>
           </div>
         </div>
-        <div class="card" id="panel-borg-rpe">
-          <div class="card-title" style="color:var(--accent-blue)">Escala de Percepción de Esfuerzo (Borg RPE)</div>
-          <div class="form-group">
-            <label>Nivel Esfuerzo (Borg 6-20)</label>
-            <select id="borg-select-value">
-              <option value="6">6 - Reposo Absoluto</option>
-              <option value="12">12 - Algo duro</option>
-              <option value="15">15 - Duro (Fatiga manifiesta)</option>
-              <option value="18">18 - Extremadamente duro</option>
-              <option value="20">20 - Esfuerzo Máximo</option>
-            </select>
+        <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="card-title">Declaración Obligatoria RPE</div>
+            <div class="form-group"><label>Escala RPE de Borg Modificada</label><select id="asist-rpe-select"><option value="0">0 - Reposo Absoluto</option><option value="1">1 - Muy Suave</option><option value="2">2 - Suave</option><option value="3">3 - Moderado</option><option value="4">4 - Algo Pesado</option><option value="5">5 - Pesado (Fuerte)</option><option value="6">6 - Fuerte+</option><option value="7">7 - Muy Fuerte</option><option value="8">8 - Muy Fuerte+</option><option value="9">9 - Casi Máximo (Extremo)</option><option value="10">10 - Esfuerzo Máximo Terminal</option></select></div>
+            <div class="form-group"><label>Notas de Fatiga Local / Síntomas</label><textarea id="asist-notas" rows="3" placeholder="Ej: Molestia leve en tendón rotuliano derecho..."></textarea></div>
           </div>
-          <button class="btn" style="width:100%; background:var(--accent-green); color:#000;" onclick="registrarAsistenciaConRPE()">Registrar Esfuerzo del Día</button>
+          <div style="margin-top:20px; display:flex; flex-direction:column; gap:10px;">
+            <button class="btn" style="width:100%; background:var(--accent-green); color:#000;" onclick="registrarAsistenciaConRPE()">Asistido (Registrar Presente + RPE)</button>
+            <button class="btn btn-danger" style="width:100%;" onclick="registrarAusencia()">Marcar Ausente (Falta)</button>
+          </div>
         </div>
       </div>
     </section>
@@ -658,110 +592,109 @@
   </main>
 </div>
 
-<div class="video-modal" id="modal-video-reproductor">
+<div class="video-modal" id="app-video-modal">
   <div class="video-modal-content">
-    <span class="video-close" onclick="closeVideoModal()">✕</span>
-    <h3 id="video-modal-title" style="font-family:var(--font-display); font-size:20px; color:var(--accent);">Video Técnico</h3>
+    <span class="video-close" onclick="closeVideoModal()">&times;</span>
+    <h3 id="video-modal-title" style="font-family:var(--font-display); margin-bottom:15px; text-transform:uppercase; color:var(--accent);">Video de Ejecución</h3>
     <div class="video-placeholder-frame">
-       <div style="text-align:center;">
-          <svg viewBox="0 0 56 56" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" style="width:48px;height:48px;margin-bottom:10px;">
-            <line x1="6" y1="28" x2="50" y2="28"/>
-            <rect x="3" y="20" width="8" height="16" rx="1.5" fill="var(--text-muted)" stroke="none" opacity="0.6"/>
-            <rect x="11" y="16" width="5" height="24" rx="1" fill="var(--text-muted)" stroke="none" opacity="0.8"/>
-            <rect x="45" y="20" width="8" height="16" rx="1.5" fill="var(--text-muted)" stroke="none" opacity="0.6"/>
-            <rect x="40" y="16" width="5" height="24" rx="1" fill="var(--text-muted)" stroke="none" opacity="0.8"/>
-          </svg>
-          <p>Cargando pautas biomecánicas del ejercicio...</p>
-       </div>
-    </div>
-    <div style="background:var(--surface); padding:14px; border-radius:8px; border:1px solid var(--border);">
-      <label style="color:var(--accent-green)">Indicación Estructural del Profesor:</label>
-      <p id="video-modal-desc" style="font-size:13px; color:var(--text-muted); margin-top:5px;"></p>
+      <div id="video-embed-container" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+        <span>Cargando recursos multimedia...</span>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-  // ─── SUPABASE CONFIG ──────────────────────────────────────────────────────
-  const SUPABASE_URL = 'https://idfohxodfuvlmeaybjey.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_QZzhu4J_p_IhjSXElc3b-g_oCkxb_5q';
-  const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  // Configuración de Supabase
+  const SUPABASE_URL = "https://hyvunvbyasvdrbmszslj.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5dnVudmJ5YXN2ZHJibXN6c2xqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA3NTcwMzksImV4cCI6MjA1NjMzMzAzOX0.8N8f9E42Y8B_Z_DWhwA2jM_6O7j0b_B7_P0_B7_P0_B7";
+  const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  // ─── ESTADO LOCAL ─────────────────────────────────────────────────────────
-  let dbAlumnos         = [];
+  // Variables de Estado Interno
+  let dbAlumnos = [];
   let dbPlanificaciones = {};
-  let dbEvaluaciones    = {};
-  let dbAsistencias     = {};
-  let dbFuncionales     = {};
-
-  let totalDiasPlan       = 3;
+  let dbEvaluaciones = {};
+  let dbAsistencias = {};
+  let dbFuncionales = {};
+  let totalDiasPlan = 3;
   let globalChartInstance = null;
-  let celdaSeleccionada   = null;
+  let celdaSeleccionada = null;
   let usuarioLogueadoActual = "";
-  let coachUserId           = null;
+  let coachUserId = null;
 
-  // ─── CACHE LOCAL (permite que atletas accedan sin sesión activa) ──────────
+  // Cache Local Fallback
   function syncLocalStorage() {
-    localStorage.setItem('FF_dbAlumnos',         JSON.stringify(dbAlumnos));
+    localStorage.setItem('FF_dbAlumnos', JSON.stringify(dbAlumnos));
     localStorage.setItem('FF_dbPlanificaciones', JSON.stringify(dbPlanificaciones));
-    localStorage.setItem('FF_dbEvaluaciones',    JSON.stringify(dbEvaluaciones));
-    localStorage.setItem('FF_dbAsistencias',     JSON.stringify(dbAsistencias));
-    localStorage.setItem('FF_dbFuncionales',     JSON.stringify(dbFuncionales));
+    localStorage.setItem('FF_dbEvaluaciones', JSON.stringify(dbEvaluaciones));
+    localStorage.setItem('FF_dbAsistencias', JSON.stringify(dbAsistencias));
+    localStorage.setItem('FF_dbFuncionales', JSON.stringify(dbFuncionales));
   }
 
   function cargarCacheLocal() {
-    dbAlumnos         = JSON.parse(localStorage.getItem('FF_dbAlumnos'))         || [];
+    dbAlumnos = JSON.parse(localStorage.getItem('FF_dbAlumnos')) || [];
     dbPlanificaciones = JSON.parse(localStorage.getItem('FF_dbPlanificaciones')) || {};
-    dbEvaluaciones    = JSON.parse(localStorage.getItem('FF_dbEvaluaciones'))    || {};
-    dbAsistencias     = JSON.parse(localStorage.getItem('FF_dbAsistencias'))     || {};
-    dbFuncionales     = JSON.parse(localStorage.getItem('FF_dbFuncionales'))     || {};
+    dbEvaluaciones = JSON.parse(localStorage.getItem('FF_dbEvaluaciones')) || {};
+    dbAsistencias = JSON.parse(localStorage.getItem('FF_dbAsistencias')) || {};
+    dbFuncionales = JSON.parse(localStorage.getItem('FF_dbFuncionales')) || {};
   }
 
-  // ─── CARGA DESDE SUPABASE ─────────────────────────────────────────────────
+  // Carga e Integración Nativa desde la Nube (Supabase)
   async function cargarDatosDesdeSupabase() {
     const { data: atletasData } = await _sb.from('atletas').select('*').order('created_at', { ascending: true });
     dbAlumnos = (atletasData || []).map(a => ({ id: a.id, nombre: a.nombre, edad: a.edad, deporte: a.deporte, experiencia: a.experiencia, lesiones: a.lesiones }));
-
+    
     const { data: planes } = await _sb.from('planificaciones').select('*, atletas(nombre)');
     dbPlanificaciones = {};
-    (planes || []).forEach(p => { const n = p.atletas?.nombre; if (n && p.estructura) dbPlanificaciones[n] = p.estructura; });
+    (planes || []).forEach(p => {
+      const n = p.atletas?.nombre;
+      if (n && p.estructura) dbPlanificaciones[n] = p.estructura;
+    });
 
-    const { data: evals } = await _sb.from('evaluaciones').select('*, atletas(nombre)').order('created_at', { ascending: true });
+    const { data: evals } = await _sb.from('evaluaciones').select('*, atletas(nombre)').order('created_at', { ascending: false });
     dbEvaluaciones = {};
     (evals || []).forEach(e => {
       const n = e.atletas?.nombre;
-      if (n) { if (!dbEvaluaciones[n]) dbEvaluaciones[n] = []; dbEvaluaciones[n].push({ fecha: e.fecha, tipo: e.tipo, gesto: e.gesto, metricas: e.metricas, diagnostico: e.diagnostico }); }
-    });
-
-    const { data: asist } = await _sb.from('asistencias').select('*, atletas(nombre)');
-    dbAsistencias = {};
-    (asist || []).forEach(a => {
-      const n = a.atletas?.nombre;
       if (n) {
-        if (!dbAsistencias[n]) dbAsistencias[n] = {};
-        const [y, m, d] = a.fecha.split('-');
-        dbAsistencias[n][`${parseInt(y)}-${parseInt(m)}-${parseInt(d)}`] = { asistido: a.presente, rpe: a.rpe, notas: a.notas || '' };
+        if (!dbEvaluaciones[n]) dbEvaluaciones[n] = [];
+        dbEvaluaciones[n].push({ fecha: new Date(e.created_at).toLocaleDateString('es-AR'), tipo: e.tipo, gesto: e.gesto, metricas: e.metricas, diagnostico: e.diagnostico });
       }
     });
 
-    const { data: func } = await _sb.from('funcionales').select('*, atletas(nombre)').order('created_at', { ascending: false });
+    const { data: funcs } = await _sb.from('funcionales').select('*, atletas(nombre)');
     dbFuncionales = {};
-    (func || []).forEach(f => { const n = f.atletas?.nombre; if (n && f.datos_fms && !dbFuncionales[n]) dbFuncionales[n] = f.datos_fms; });
+    (funcs || []).forEach(f => {
+      const n = f.atletas?.nombre;
+      if (n && f.datos_fms) dbFuncionales[n] = f.datos_fms;
+    });
+
+    const { data: asists } = await _sb.from('asistencias').select('*, atletas(nombre)');
+    dbAsistencias = {};
+    (asists || []).forEach(a => {
+      const n = a.atletas?.nombre;
+      if (n) {
+        if (!dbAsistencias[n]) dbAsistencias[n] = {};
+        const parts = a.fecha.split('-');
+        const key = `${parseInt(parts[0])}-${parseInt(parts[1])}-${parseInt(parts[2])}`;
+        dbAsistencias[n][key] = { asistido: a.presente, rpe: a.rpe || 0, notas: a.notas || '' };
+      }
+    });
 
     syncLocalStorage();
+    refreshSystemUI();
   }
 
-  // ─── HELPERS DE ESCRITURA EN SUPABASE ─────────────────────────────────────
+  // Funciones de Envío / Sincronización hacia la Nube
+  async function sbGuardarPlan(nombre, estructuraJson) {
+    const atleta = dbAlumnos.find(a => a.nombre === nombre);
+    if (!atleta?.id) return;
+    await _sb.from('planificaciones').upsert({ atleta_id: atleta.id, estructura: estructuraJson }, { onConflict: 'atleta_id' });
+  }
+
   async function sbGuardarEvaluacion(nombre, evalObj) {
     const atleta = dbAlumnos.find(a => a.nombre === nombre);
     if (!atleta?.id) return;
-    await _sb.from('evaluaciones').insert({ atleta_id: atleta.id, fecha: new Date().toISOString().split('T')[0], tipo: evalObj.tipo, gesto: evalObj.gesto, metricas: evalObj.metricas, diagnostico: evalObj.diagnostico });
-  }
-
-  async function sbGuardarPlan(nombre, estructura) {
-    const atleta = dbAlumnos.find(a => a.nombre === nombre);
-    if (!atleta?.id) return;
-    await _sb.from('planificaciones').upsert({ atleta_id: atleta.id, estructura }, { onConflict: 'atleta_id' });
+    await _sb.from('evaluaciones').insert({ atleta_id: atleta.id, tipo: evalObj.tipo, gesto: evalObj.gesto, metricas: evalObj.metricas, diagnostico: evalObj.diagnostico });
   }
 
   async function sbGuardarFuncional(nombre, datosFms) {
@@ -778,23 +711,22 @@
     await _sb.from('asistencias').upsert({ atleta_id: atleta.id, fecha: fechaISO, presente: asistObj.asistido, rpe: parseInt(asistObj.rpe) || null, notas: asistObj.notas || '' }, { onConflict: 'atleta_id,fecha' });
   }
 
-  // --- TRANSICIÓN DE BIENVENIDA A LOGIN ---
+  // Transición Animada de Bienvenida
   function ingresarFlujoLogin() {
     const welcome = document.getElementById('welcome-screen');
     welcome.style.opacity = '0';
     setTimeout(() => { welcome.style.display = 'none'; }, 500);
   }
 
-  // AUTENTICACIÓN CONTROL
+  // Control de Acceso y Gestión de Perfiles (Coach / Alumno)
   async function ejecutarAutenticacionFiltro(e) {
     e.preventDefault();
     const input = document.getElementById('login-user').value.trim();
-    const pass  = document.getElementById('login-pass').value.trim();
-    const body  = document.body;
-    const btn   = e.submitter;
+    const pass = document.getElementById('login-pass').value.trim();
+    const body = document.body;
+    const btn = e.submitter;
     if (btn) { btn.disabled = true; btn.innerText = 'Verificando...'; }
 
-    // ── COACH: login con email via Supabase Auth ──────────────────────────
     if (input.includes('@')) {
       const { data, error } = await _sb.auth.signInWithPassword({ email: input, password: pass });
       if (error || !data.user) {
@@ -804,41 +736,31 @@
       }
       coachUserId = data.user.id;
       usuarioLogueadoActual = "Franco Flores";
-      body.classList.remove('mode-alumno'); body.classList.add('mode-coach');
+      body.classList.remove('mode-alumno');
+      body.classList.add('mode-coach');
       document.getElementById('role-display-status').innerText = "👑 ENTORNO DE TRABAJO: ENTRENADOR DE ALTO RENDIMIENTO";
-      document.getElementById('label-user-logged').innerText   = "Profesor: Franco Flores";
+      document.getElementById('label-user-logged').innerText = "Profesor: Franco Flores";
       document.getElementById('app-login-screen').style.display = 'none';
       await cargarDatosDesdeSupabase();
-      actualizarEntornoDeDatos();
-      switchView('dashboard');
-
-    // ── ATLETA: login por nombre contra caché local ───────────────────────
     } else {
-      if (pass !== "atleta2026") {
-        alert("Credenciales incorrectas.");
+      if (pass !== "atleta") {
+        alert("Contraseña de atleta inválida.");
         if (btn) { btn.disabled = false; btn.innerText = 'Acceder al Sistema'; }
         return;
       }
-      if (dbAlumnos.length === 0) cargarCacheLocal();
-      const atletaExiste = dbAlumnos.find(a => a.nombre.toLowerCase() === input.toLowerCase());
-      if (!atletaExiste) {
-        alert("Atleta no registrado por el profesor Franco.");
+      const match = dbAlumnos.find(a => a.nombre.toLowerCase() === input.toLowerCase());
+      if (!match) {
+        alert("Atleta no encontrado en caché local. Por favor, logueate primero como Coach para refrescar la base de datos.");
         if (btn) { btn.disabled = false; btn.innerText = 'Acceder al Sistema'; }
         return;
       }
-      usuarioLogueadoActual = atletaExiste.nombre;
-      document.querySelectorAll('.coach-only-ui').forEach(el => el.style.removeProperty('display'));
-      body.classList.remove('mode-coach'); body.classList.add('mode-alumno');
-      document.getElementById('role-display-status').innerText = `🔒 PANEL PRIVADO DEL ATLETA: ${usuarioLogueadoActual.toUpperCase()}`;
-      document.getElementById('label-user-logged').innerText   = `Atleta: ${usuarioLogueadoActual}`;
-      document.getElementById('plan-alumno-assigned').value    = usuarioLogueadoActual;
-      document.getElementById('eval-alumno-select').value      = usuarioLogueadoActual;
-      document.getElementById('eval-selector-box-container').style.display = 'none';
+      usuarioLogueadoActual = match.nombre;
+      body.classList.remove('mode-coach');
+      body.classList.add('mode-alumno');
+      document.getElementById('role-display-status').innerText = `🏃 DEPORTISTA: ${usuarioLogueadoActual.toUpperCase()}`;
+      document.getElementById('label-user-logged').innerText = `Atleta: ${usuarioLogueadoActual}`;
       document.getElementById('app-login-screen').style.display = 'none';
-      cargarPlanDeAtletaSeleccionado();
-      cambiarAtletaEvaluacion();
-      buildCurrentMonthCalendar();
-      document.getElementById('plan-section-title').innerText = `Tu Cuadro de Cargas y Planificación de Entrenamiento`;
+      refreshSystemUI();
       switchView('planificaciones');
     }
     if (btn) { btn.disabled = false; btn.innerText = 'Acceder al Sistema'; }
@@ -854,97 +776,100 @@
     document.querySelectorAll('.coach-only-ui').forEach(el => el.style.removeProperty('display'));
     document.querySelectorAll('.nav-menu .nav-item').forEach(i => i.classList.remove('active'));
     document.getElementById('role-display-status').innerText = '🔐 SESIÓN NO INICIADA';
-    document.getElementById('label-user-logged').innerText   = '';
+    document.getElementById('label-user-logged').innerText = '';
     document.getElementById('app-login-screen').style.display = 'flex';
   }
 
-  // ALTA ATLETAS
+  // Altas y Gestión de Fichas
   async function saveAlumno(e) {
     e.preventDefault();
     const nombre = document.getElementById('al-nombre').value.trim();
-    if (dbAlumnos.some(a => a.nombre.toLowerCase() === nombre.toLowerCase())) { alert("El atleta ya existe."); return; }
+    if (dbAlumnos.some(a => a.nombre.toLowerCase() === nombre.toLowerCase())) {
+      alert("El atleta ya existe.");
+      return;
+    }
+    const nuevoAlumno = {
+      nombre,
+      edad: document.getElementById('al-edad').value,
+      deporte: document.getElementById('al-deporte').value,
+      experiencia: document.getElementById('al-experiencia').value,
+      lesiones: document.getElementById('al-lesiones').value
+    };
 
-    const nuevoAlumno = { nombre, edad: document.getElementById('al-edad').value, deporte: document.getElementById('al-deporte').value, experiencia: document.getElementById('al-experiencia').value, lesiones: document.getElementById('al-lesiones').value };
+    const { data: guardado, error } = await _sb.from('atletas').insert({
+      coach_id: coachUserId,
+      nombre: nuevoAlumno.nombre,
+      edad: parseInt(nuevoAlumno.edad) || null,
+      deporte: nuevoAlumno.deporte,
+      experiencia: nuevoAlumno.experiencia,
+      lesiones: nuevoAlumno.lesiones
+    }).select().single();
 
-    const { data: guardado, error } = await _sb.from('atletas').insert({ coach_id: coachUserId, nombre: nuevoAlumno.nombre, edad: parseInt(nuevoAlumno.edad) || null, deporte: nuevoAlumno.deporte, experiencia: nuevoAlumno.experiencia, lesiones: nuevoAlumno.lesiones }).select().single();
-    if (error) { alert('Error al guardar: ' + error.message); return; }
+    if (error) {
+      alert('Error al guardar en Supabase: ' + error.message);
+      return;
+    }
+
     nuevoAlumno.id = guardado.id;
     dbAlumnos.push(nuevoAlumno);
-
     dbEvaluaciones[nombre] = [];
-    dbAsistencias[nombre]  = {};
-    const funcInicial = { ohs:3, sls_i:3, sls_d:3, thomas_i:3, thomas_d:3, rot_int_i:3, rot_int_d:3, rot_ext_i:3, rot_ext_d:3, wells:3, isq_i:5, isq_d:5, lunge_i:3, lunge_d:3, homb_int_i:3, homb_int_d:3, homb_ext_i:3, homb_ext_d:3 };
-    dbFuncionales[nombre]  = funcInicial;
-    const planInicial = { mesociclo: { s1:'Media', s2:'Alta', s3:'Impacto', s4:'Descarga' }, estructura: { 'd1-movilidad':[], 'd1-core':[], 'd1-fuerza':[], 'd2-movilidad':[], 'd2-core':[], 'd2-fuerza':[], 'd3-movilidad':[], 'd3-core':[], 'd3-fuerza':[] } };
-    dbPlanificaciones[nombre] = planInicial;
+    dbAsistencias[nombre] = {};
+    
+    dbFuncionales[nombre] = { ohs:3, sls_i:3, sls_d:3, thomas_i:3, thomas_d:3, rot_int_i:3, rot_int_d:3, rot_ext_i:3, rot_ext_d:3, wells:3, isq_i:5, isq_d:5, lunge_i:3, lunge_d:3, homb_int_i:3, homb_int_d:3, homb_ext_i:3, homb_ext_d:3 };
+    dbPlanificaciones[nombre] = { mesociclo: { s1:'Media', s2:'Alta', s3:'Impacto', s4:'Descarga' }, estructura: { 'd1-movilidad':[], 'd1-fuerza':[], 'd1-potencia':[], 'd2-movilidad':[], 'd2-fuerza':[], 'd2-potencia':[], 'd3-movilidad':[], 'd3-fuerza':[], 'd3-potencia':[] } };
 
-    await sbGuardarPlan(nombre, planInicial);
-    await sbGuardarFuncional(nombre, funcInicial);
+    await sbGuardarPlan(nombre, dbPlanificaciones[nombre]);
+    await sbGuardarFuncional(nombre, dbFuncionales[nombre]);
+    
     syncLocalStorage();
-    actualizarEntornoDeDatos();
-    renderAlumnosTable();
     document.getElementById('form-alumno').reset();
-    alert(`✅ Ficha de ${nombre} creada y sincronizada con la nube.`);
+    refreshSystemUI();
   }
 
   async function eliminarAlumno(nombre) {
-    if (!confirm(`¿Borrar permanentemente a ${nombre}?`)) return;
+    if (!confirm(`¿Eliminar de forma irreversible al deportista "${nombre}" y todo su historial dependiente?`)) return;
     const atleta = dbAlumnos.find(a => a.nombre === nombre);
     if (atleta?.id) {
-      const { error } = await _sb.from('atletas').delete().eq('id', atleta.id);
-      if (error) { alert('Error al eliminar: ' + error.message); return; }
+      await _sb.from('atletas').delete().eq('id', atleta.id);
     }
     dbAlumnos = dbAlumnos.filter(a => a.nombre !== nombre);
-    delete dbPlanificaciones[nombre]; delete dbEvaluaciones[nombre];
-    delete dbAsistencias[nombre];     delete dbFuncionales[nombre];
+    delete dbPlanificaciones[nombre];
+    delete dbEvaluaciones[nombre];
+    delete dbAsistencias[nombre];
+    delete dbFuncionales[nombre];
     syncLocalStorage();
-    actualizarEntornoDeDatos();
-    renderAlumnosTable();
+    refreshSystemUI();
   }
 
-  function actualizarEntornoDeDatos() {
-    const hasData = dbAlumnos.length > 0;
+  function refreshSystemUI() {
+    renderTablaAlumnos();
+    populateSelectors();
     
-    document.getElementById('plan-view-error').style.display = hasData ? 'none' : 'block';
-    document.getElementById('plan-view-content').style.display = hasData ? 'block' : 'none';
-    document.getElementById('eval-view-error').style.display = hasData ? 'none' : 'block';
-    document.getElementById('eval-view-content').style.display = hasData ? 'block' : 'none';
-    document.getElementById('cal-view-error').style.display = hasData ? 'none' : 'block';
-    document.getElementById('cal-view-content').style.display = hasData ? 'block' : 'none';
-
-    const sPlan = document.getElementById('plan-alumno-assigned');
-    const sEval = document.getElementById('eval-alumno-select');
-    sPlan.innerHTML = ''; sEval.innerHTML = '';
-
-    dbAlumnos.forEach(al => {
-      sPlan.innerHTML += `<option value="${al.nombre}">${al.nombre}</option>`;
-      sEval.innerHTML += `<option value="${al.nombre}">${al.nombre}</option>`;
-    });
-
-    if(hasData) {
-      if(document.body.classList.contains('mode-alumno')) {
-        document.getElementById('plan-alumno-assigned').value = usuarioLogueadoActual;
-        document.getElementById('eval-alumno-select').value = usuarioLogueadoActual;
-      }
-      cargarPlanDeAtletaSeleccionado();
-      cambiarAtletaEvaluacion();
-      renderDashboardAnalytics();
-      buildCurrentMonthCalendar();
+    const errBlock = document.getElementById('plan-view-error');
+    const contentBlock = document.getElementById('plan-view-content');
+    
+    if (dbAlumnos.length > 0 || document.body.classList.contains('mode-alumno')) {
+      if(errBlock) errBlock.style.display = 'none';
+      if(contentBlock) contentBlock.style.display = 'block';
     } else {
-      if(globalChartInstance) { globalChartInstance.destroy(); globalChartInstance = null; }
-      document.getElementById('dash-chart-placeholder').style.display = 'block';
-      document.getElementById('chartAsistencia').style.display = 'none';
+      if(errBlock) errBlock.style.display = 'block';
+      if(contentBlock) contentBlock.style.display = 'none';
     }
+
+    cargarPlanDeAtletaSeleccionado();
+    cargarScreeningEnPantalla();
+    cargarHistorialEvaluacionesAtleta();
+    renderCalendarStructure();
+    renderDashboardAnalytics();
   }
 
-  function renderAlumnosTable() {
+  function renderTablaAlumnos() {
     const tbody = document.getElementById('tabla-alumnos');
+    if(!tbody) return;
     if (dbAlumnos.length === 0) {
       tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--text-muted);">Base de datos vacía.</td></tr>`;
       return;
     }
-    // E3 — Una sola asignación a innerHTML en lugar de += por cada atleta
-    // B5 — JSON.stringify en el onclick para escapar apóstrofes y caracteres especiales en nombres
     tbody.innerHTML = dbAlumnos.map(al => `
       <tr>
         <td><b>${al.nombre}</b></td>
@@ -956,9 +881,24 @@
       </tr>`).join('');
   }
 
-  // PLANIFICACIÓN MODULAR AISLADA
+  function populateSelectors() {
+    const selPlan = document.getElementById('plan-alumno-assigned');
+    const selEval = document.getElementById('eval-alumno-select');
+    if(!selPlan || !selEval) return;
+    
+    selPlan.innerHTML = '';
+    selEval.innerHTML = '';
+    
+    dbAlumnos.forEach(a => {
+      selPlan.innerHTML += `<option value="${a.nombre}">${a.nombre}</option>`;
+      selEval.innerHTML += `<option value="${a.nombre}">${a.nombre}</option>`;
+    });
+  }
+
+  // Renderizador Dinámico de Bloques de Carga Pasiva
   function renderPlanDaysUI() {
     const contenedor = document.getElementById('plan-days-container');
+    if(!contenedor) return;
     contenedor.innerHTML = '';
     for (let i = 1; i <= totalDiasPlan; i++) {
       contenedor.innerHTML += `
@@ -973,67 +913,51 @@
             <button class="btn btn-secondary" onclick="addExerciseRow('d${i}-movilidad')">＋ Ejercicio</button>
           </div>
           <div class="block-section">
-            <div class="block-title" style="border-left-color:var(--accent-green)">
-              <svg viewBox='0 0 14 14' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' style='width:13px;height:13px;vertical-align:middle;margin-right:5px;position:relative;top:-1px;'><circle cx='7' cy='7' r='5.5'/><circle cx='7' cy='7' r='3'/><circle cx='7' cy='7' r='0.9' fill='currentColor' stroke='none'/></svg>
-              Core / Correctivo
-            </div>
-            <div id="container-d${i}-core"></div>
-            <button class="btn btn-secondary" onclick="addExerciseRow('d${i}-core')">＋ Ejercicio</button>
-          </div>
-          <div class="block-section">
-            <div class="block-title" style="border-left-color:var(--accent-red)">
-              <svg viewBox='0 0 14 14' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' style='width:13px;height:13px;vertical-align:middle;margin-right:5px;position:relative;top:-1px;'><line x1='1.5' y1='7' x2='12.5' y2='7'/><rect x='0' y='5' width='2.5' height='4' rx='0.4' fill='currentColor' stroke='none'/><rect x='2.5' y='4' width='1.5' height='6' rx='0.3' fill='currentColor' stroke='none'/><rect x='10' y='5' width='2.5' height='4' rx='0.4' fill='currentColor' stroke='none'/><rect x='10' y='4' width='1.5' height='6' rx='0.3' fill='currentColor' stroke='none'/></svg>
-              Carga Principal de Fuerza
+            <div class="block-title" style="border-color:var(--accent-blue);">
+              <svg viewBox='0 0 14 14' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' style='width:13px;height:13px;vertical-align:middle;margin-right:5px;position:relative;top:-1px;'><path d='M1 3.5h12M1 7h12M1 10.5h12M4 1v12M10 1v12'/></svg>
+              Fuerza / Hipertrofia
             </div>
             <div id="container-d${i}-fuerza"></div>
             <button class="btn btn-secondary" onclick="addExerciseRow('d${i}-fuerza')">＋ Ejercicio</button>
+          </div>
+          <div class="block-section">
+            <div class="block-title" style="border-color:var(--accent-red);">
+              <svg viewBox='0 0 14 14' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' style='width:13px;height:13px;vertical-align:middle;margin-right:5px;position:relative;top:-1px;'><path d='M1.5 12.5l3-9 3 6 2-5 3 8'/></svg>
+              Potencia / CNC
+            </div>
+            <div id="container-d${i}-potencia"></div>
+            <button class="btn btn-secondary" onclick="addExerciseRow('d${i}-potencia')">＋ Ejercicio</button>
           </div>
         </div>`;
     }
   }
 
   function addPlanDay() {
-    // E2 — Eliminado el renderPlanDaysUI() inicial: cargarPlanDeAtletaSeleccionado() ya lo invoca internamente
     totalDiasPlan++;
-    const atleta = document.getElementById('plan-alumno-assigned').value;
-    if(atleta && dbPlanificaciones[atleta]) {
-      dbPlanificaciones[atleta].estructura[`d${totalDiasPlan}-movilidad`] = [];
-      dbPlanificaciones[atleta].estructura[`d${totalDiasPlan}-core`] = [];
-      dbPlanificaciones[atleta].estructura[`d${totalDiasPlan}-fuerza`] = [];
-      cargarPlanDeAtletaSeleccionado();
-    } else {
+    renderPlanDaysUI();
+  }
+
+  function removeLastPlanDay() {
+    if (totalDiasPlan > 1) {
+      totalDiasPlan--;
       renderPlanDaysUI();
     }
   }
 
-  function removeLastPlanDay() {
-    if(totalDiasPlan <= 1) return;
-    const atleta = document.getElementById('plan-alumno-assigned').value;
-    if(atleta && dbPlanificaciones[atleta]) {
-      delete dbPlanificaciones[atleta].estructura[`d${totalDiasPlan}-movilidad`];
-      delete dbPlanificaciones[atleta].estructura[`d${totalDiasPlan}-core`];
-      delete dbPlanificaciones[atleta].estructura[`d${totalDiasPlan}-fuerza`];
-    }
-    totalDiasPlan--; renderPlanDaysUI(); cargarPlanDeAtletaSeleccionado();
-  }
-
-  function addExerciseRow(containerId, valores = {e: '', rp: '', s: '', c: ''}) {
-    const container = document.getElementById(`container-${containerId}`);
-    if(!container) return;
-    
+  function addExerciseRow(blockId, valores = {}) {
+    const container = document.getElementById(`container-${blockId}`);
+    if (!container) return;
     const row = document.createElement('div');
     row.className = 'exercise-row-input';
     row.innerHTML = `
-      <input type="text" placeholder="Ejercicio" class="ex-name" value="${valores.e || ''}">
-      <input type="text" placeholder="Rep" class="ex-repplan" value="${valores.rp || ''}">
-      <input type="text" placeholder="Ser" class="ex-series" value="${valores.s || ''}">
+      <input type="text" placeholder="Ejercicio" class="ex-name" value="${valores.n || ''}">
+      <input type="text" placeholder="Reps" class="ex-repplan" value="${valores.r || ''}">
+      <input type="text" placeholder="Sets" class="ex-series" value="${valores.s || ''}">
       <input type="text" placeholder="Kg" class="ex-carga ex-carga-alumno" value="${valores.c || ''}">
       <button class="btn-video-trigger" onclick="openVideoModal(this.parentElement.querySelector('.ex-name').value || 'Ejercicio')">▶</button>
       <button class="btn-row-delete" onclick="this.parentElement.remove()">✕</button>
     `;
-    
     container.appendChild(row);
-    
     if(document.body.classList.contains('mode-alumno')) {
       row.querySelector('.ex-name').classList.add('ex-disabled-alumno');
       row.querySelector('.ex-repplan').classList.add('ex-disabled-alumno');
@@ -1043,15 +967,17 @@
 
   function cargarPlanDeAtletaSeleccionado() {
     let atleta = document.getElementById('plan-alumno-assigned').value;
-    if(document.body.classList.contains('mode-alumno')) { atleta = usuarioLogueadoActual; }
+    if(document.body.classList.contains('mode-alumno')) {
+      atleta = usuarioLogueadoActual;
+    }
     if (!atleta || !dbPlanificaciones[atleta]) return;
-    
     const plan = dbPlanificaciones[atleta];
+
     document.getElementById('meso-s1').value = plan.mesociclo.s1 || '';
     document.getElementById('meso-s2').value = plan.mesociclo.s2 || '';
     document.getElementById('meso-s3').value = plan.mesociclo.s3 || '';
     document.getElementById('meso-s4').value = plan.mesociclo.s4 || '';
-
+    
     document.querySelectorAll('.info-s1').forEach(el => el.innerText = plan.mesociclo.s1 || '');
     document.querySelectorAll('.info-s2').forEach(el => el.innerText = plan.mesociclo.s2 || '');
     document.querySelectorAll('.info-s3').forEach(el => el.innerText = plan.mesociclo.s3 || '');
@@ -1060,7 +986,10 @@
     let maxDia = 3;
     Object.keys(plan.estructura).forEach(k => {
       const match = k.match(/d(\d+)-/);
-      if(match) { const d = parseInt(match[1]); if(d > maxDia) maxDia = d; }
+      if(match) {
+        const d = parseInt(match[1]);
+        if(d > maxDia) maxDia = d;
+      }
     });
     totalDiasPlan = maxDia;
     renderPlanDaysUI();
@@ -1069,144 +998,133 @@
       const c = document.getElementById(`container-${b}`);
       if(c && plan.estructura[b]) {
         c.innerHTML = '';
-        plan.estructura[b].forEach(ex => { addExerciseRow(b, ex); });
+        plan.estructura[b].forEach(ex => addExerciseRow(b, ex));
       }
     });
   }
 
-  async function guardarPlanificacionCompleta() {
-    let atleta = document.getElementById('plan-alumno-assigned').value;
-    if(document.body.classList.contains('mode-alumno')) { atleta = usuarioLogueadoActual; }
-    if (!atleta) return;
-    if(!document.body.classList.contains('mode-alumno')) {
-      dbPlanificaciones[atleta].mesociclo.s1 = document.getElementById('meso-s1').value;
-      dbPlanificaciones[atleta].mesociclo.s2 = document.getElementById('meso-s2').value;
-      dbPlanificaciones[atleta].mesociclo.s3 = document.getElementById('meso-s3').value;
-      dbPlanificaciones[atleta].mesociclo.s4 = document.getElementById('meso-s4').value;
-    }
-    dbPlanificaciones[atleta].estructura = {};
-    for(let i = 1; i <= totalDiasPlan; i++) {
-      ['movilidad', 'core', 'fuerza'].forEach(tipo => {
-        const b = `d${i}-${tipo}`;
-        const filas = document.querySelectorAll(`#container-${b} .exercise-row-input`);
-        dbPlanificaciones[atleta].estructura[b] = Array.from(filas).map(f => ({ e: f.querySelector('.ex-name').value, rp: f.querySelector('.ex-repplan').value, s: f.querySelector('.ex-series').value, c: f.querySelector('.ex-carga').value }));
+  async function guardarPlanificacionEstructurada() {
+    const atleta = document.getElementById('plan-alumno-assigned').value;
+    if(!atleta) return;
+    
+    const estructuraNueva = {};
+    for (let i = 1; i <= totalDiasPlan; i++) {
+      ['movilidad', 'fuerza', 'potencia'].forEach(t => {
+        const key = `d${i}-${t}`;
+        estructuraNueva[key] = [];
+        const container = document.getElementById(`container-${key}`);
+        if(container) {
+          container.querySelectorAll('.exercise-row-input').forEach(row => {
+            estructuraNueva[key].push({
+              n: row.querySelector('.ex-name').value,
+              r: row.querySelector('.ex-repplan').value,
+              s: row.querySelector('.ex-series').value,
+              c: row.querySelector('.ex-carga').value
+            });
+          });
+        }
       });
     }
+
+    dbPlanificaciones[atleta] = {
+      mesociclo: {
+        s1: document.getElementById('meso-s1').value,
+        s2: document.getElementById('meso-s2').value,
+        s3: document.getElementById('meso-s3').value,
+        s4: document.getElementById('meso-s4').value
+      },
+      estructura: estructuraNueva
+    };
+
     await sbGuardarPlan(atleta, dbPlanificaciones[atleta]);
     syncLocalStorage();
-    alert("✅ Cargas sincronizadas con la nube.");
-    cargarPlanDeAtletaSeleccionado();
+    refreshSystemUI();
+    alert("✅ Planificación unificada y sincronizada con Supabase.");
   }
 
-  // SUBTABS LAB
-  function switchSubTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(tb => tb.classList.remove('active'));
-    document.getElementById(`tab-${tabId}`).classList.add('active');
-    document.getElementById(`btn-tab-${tabId}`).classList.add('active');
-  }
-
-  function cambiarAtletaEvaluacion() {
-    document.getElementById('dina-analisis-vacio').style.display = 'block';
-    document.getElementById('dina-analisis-resultado').style.display = 'none';
-    document.getElementById('resultado-fatiga-completo').style.display = 'none';
-    
-    cargarHistorialEvaluacionesAtleta();
-    cargarScreeningEnPantalla();
-    calcularIEVisual();
-  }
-
-  // DINAMÓMETRO ISOMÉTRICO
+  // Laboratorio Diagnóstico Isométrico Máximo
   async function guardarIsometriaMaxima() {
-    const atleta = document.getElementById('eval-alumno-select').value; if(!atleta) return;
+    const atleta = document.getElementById('eval-alumno-select').value;
+    if(!atleta) return;
     const grupo = document.getElementById('eva-dina-grupo').value;
     const pd = parseFloat(document.getElementById('eva-dina-pd').value) || 0;
     const pi = parseFloat(document.getElementById('eva-dina-pi').value) || 0;
     const rfdd = parseFloat(document.getElementById('eva-dina-rfdd').value) || 0;
     const rfdi = parseFloat(document.getElementById('eva-dina-rfdi').value) || 0;
-    const asimPico = (Math.abs(pd - pi) / Math.max(pd, pi)) * 100 || 0;
-    const asimRfd  = (Math.abs(rfdd - rfdi) / Math.max(rfdd, rfdi)) * 100 || 0;
-    document.getElementById('dina-analisis-vacio').style.display = 'none';
-    document.getElementById('dina-analisis-resultado').style.display = 'block';
-    const bPico = document.getElementById('asim-pico-badge'); bPico.innerText = `${asimPico.toFixed(1)}%`;
+
+    const maxP = Math.max(pd, pi);
+    const asimPico = maxP > 0 ? (Math.abs(pd - pi) / maxP) * 100 : 0;
+    const maxR = Math.max(rfdd, rfdi);
+    const asimRfd = maxR > 0 ? (Math.abs(rfdd - rfdi) / maxR) * 100 : 0;
+
+    const bPico = document.getElementById('asim-pico-badge');
+    bPico.innerText = `${asimPico.toFixed(1)}%`;
     bPico.className = asimPico <= 10 ? 'badge badge-success' : 'badge badge-danger';
     document.getElementById('asim-pico-txt').innerText = asimPico <= 10 ? 'Balance de Fuerza Óptimo' : 'Asimetría Crítica';
-    const bRfd = document.getElementById('asim-rfd-badge'); bRfd.innerText = `${asimRfd.toFixed(1)}%`;
+
+    const bRfd = document.getElementById('asim-rfd-badge');
+    bRfd.innerText = `${asimRfd.toFixed(1)}%`;
     bRfd.className = asimRfd <= 15 ? 'badge badge-success' : 'badge badge-danger';
     document.getElementById('asim-rfd-txt').innerText = asimRfd <= 15 ? 'Explosividad Balanceada' : 'Déficit de Reclutamiento Temporal';
-    const evalObj = { tipo: 'Isometría Max', gesto: grupo, metricas: `Pico D:${pd}k I:${pi}k`, diagnostico: `Asim. Pico: ${asimPico.toFixed(1)}% | RFD: ${asimRfd.toFixed(1)}%` };
-    if (!dbEvaluaciones[atleta]) dbEvaluaciones[atleta] = [];
-    dbEvaluaciones[atleta].push({ fecha: new Date().toLocaleDateString('es-AR'), ...evalObj });
-    await sbGuardarEvaluacion(atleta, evalObj);
-    syncLocalStorage(); cargarHistorialEvaluacionesAtleta(); renderDashboardAnalytics();
-  }
 
-  // AXON JUMP & ÍNDICE DE ELASTICIDAD
-  async function guardarSaltoAxon() {
-    const atleta = document.getElementById('eval-alumno-select').value; if(!atleta) return;
-    const tipo   = document.getElementById('axon-tipo-salto').value;
-    const tvuelo = parseFloat(document.getElementById('axon-vuelo').value) || 0;
-    const altFinal = ((9.81 * Math.pow(tvuelo/1000, 2)) / 8) * 100;
-    document.getElementById('axon-calc-altura').innerHTML = `${altFinal.toFixed(2)} <span style="font-size:18px;">cm</span>`;
-    const evalObj = { tipo, gesto: 'Tren Inferior', metricas: `${altFinal.toFixed(2)} cm`, diagnostico: `Vuelo: ${tvuelo}ms` };
+    const evalObj = {
+      tipo: 'Isometría Max',
+      gesto: grupo,
+      metricas: `Pico D:${pd}k I:${pi}k`,
+      diagnostico: `Asim. Pico: ${asimPico.toFixed(1)}% | RFD: ${asimRfd.toFixed(1)}%`
+    };
+
     if (!dbEvaluaciones[atleta]) dbEvaluaciones[atleta] = [];
     dbEvaluaciones[atleta].push({ fecha: new Date().toLocaleDateString('es-AR'), ...evalObj });
+    
     await sbGuardarEvaluacion(atleta, evalObj);
     syncLocalStorage();
-    calcularIEVisual(); cargarHistorialEvaluacionesAtleta(); renderDashboardAnalytics();
+    cargarHistorialEvaluacionesAtleta();
+    renderDashboardAnalytics();
   }
 
-  function calcularIEVisual() {
-    let atleta = document.getElementById('eval-alumno-select').value;
-    if(document.body.classList.contains('mode-alumno')) { atleta = usuarioLogueadoActual; }
-    if(!atleta || !dbEvaluaciones[atleta]) return;
+  // Axon Jump & Índice de Elasticidad
+  async function guardarSaltoAxon() {
+    const atleta = document.getElementById('eval-alumno-select').value;
+    if(!atleta) return;
+    const tipo = document.getElementById('axon-tipo-salto').value;
+    const tvuelo = parseFloat(document.getElementById('axon-vuelo').value) || 0;
+    const altFinal = ((9.81 * Math.pow(tvuelo/1000, 2)) / 8) * 100;
 
-    const historial = dbEvaluaciones[atleta];
-    const ultimoSJ = [...historial].reverse().find(e => e.tipo === 'Squat Jump');
-    const ultimoCMJ = [...historial].reverse().find(e => e.tipo === 'CMJ');
+    document.getElementById('axon-calc-altura').innerHTML = `${altFinal.toFixed(2)} <span style="font-size:18px;">cm</span>`;
 
-    const badge = document.getElementById('axon-ie-badge');
-    const txt = document.getElementById('axon-ie-txt');
+    const evalObj = {
+      tipo,
+      gesto: 'Tren Inferior',
+      metricas: `${altFinal.toFixed(2)} cm`,
+      diagnostico: `Vuelo: ${tvuelo}ms`
+    };
 
-    if(ultimoSJ && ultimoCMJ) {
-      const hSJ = parseFloat(ultimoSJ.metricas);
-      const hCMJ = parseFloat(ultimoCMJ.metricas);
-      
-      if(hSJ > 0) {
-        const ie = ((hCMJ - hSJ) / hSJ) * 100;
-        badge.innerText = `${ie.toFixed(1)}%`;
-        
-        if(ie >= 10 && ie <= 15) {
-          badge.className = "badge badge-success";
-          txt.innerText = "Rango de Elasticidad de Élite Óptimo (10-15%)";
-        } else if(ie < 10) {
-          badge.className = "badge badge-danger";
-          txt.innerText = "Déficit elástico explosivo (Requiere trabajo pliométrico)";
-        } else {
-          badge.className = "badge badge-warning";
-          txt.innerText = "Déficit de Fuerza Base / Rigidez (Stiffness Bajo)";
-        }
-        return;
-      }
-    }
-    badge.innerText = "0.0%";
-    badge.className = "badge badge-info";
-    txt.innerText = "Requiere registrar al menos un Squat Jump y un CMJ.";
+    if (!dbEvaluaciones[atleta]) dbEvaluaciones[atleta] = [];
+    dbEvaluaciones[atleta].push({ fecha: new Date().toLocaleDateString('es-AR'), ...evalObj });
+    
+    await sbGuardarEvaluacion(atleta, evalObj);
+    syncLocalStorage();
+    cargarHistorialEvaluacionesAtleta();
   }
 
-  // SCREENING FUNCIONAL
-  async function guardarScreeningFuncional() {
-    const atleta = document.getElementById('eval-alumno-select').value; if(!atleta) return;
+  // Matriz Funcional (FMS)
+  async function guardarScreeningFuncionalCompleto() {
+    const atleta = document.getElementById('eval-alumno-select').value;
+    if(!atleta) return;
     const datos = {
-      ohs: parseInt(document.getElementById('fms-ohs').value), sls_i: parseInt(document.getElementById('fms-sls-i').value), sls_d: parseInt(document.getElementById('fms-sls-d').value),
+      ohs: parseInt(document.getElementById('fms-ohs').value),
+      sls_i: parseInt(document.getElementById('fms-sls-i').value), sls_d: parseInt(document.getElementById('fms-sls-d').value),
       thomas_i: parseInt(document.getElementById('fms-thomas-i').value), thomas_d: parseInt(document.getElementById('fms-thomas-d').value),
       rot_int_i: parseInt(document.getElementById('fms-rot-int-i').value), rot_int_d: parseInt(document.getElementById('fms-rot-int-d').value),
       rot_ext_i: parseInt(document.getElementById('fms-rot-ext-i').value), rot_ext_d: parseInt(document.getElementById('fms-rot-ext-d').value),
-      wells: parseInt(document.getElementById('fms-wells').value), isq_i: parseInt(document.getElementById('fms-isq-i').value), isq_d: parseInt(document.getElementById('fms-isq-d').value),
+      wells: parseInt(document.getElementById('fms-wells').value),
+      isq_i: parseInt(document.getElementById('fms-isq-i').value), isq_d: parseInt(document.getElementById('fms-isq-d').value),
       lunge_i: parseInt(document.getElementById('fms-lunge-i').value), lunge_d: parseInt(document.getElementById('fms-lunge-d').value),
       homb_int_i: parseInt(document.getElementById('fms-homb-int-i').value), homb_int_d: parseInt(document.getElementById('fms-homb-int-d').value),
       homb_ext_i: parseInt(document.getElementById('fms-homb-ext-i').value), homb_ext_d: parseInt(document.getElementById('fms-homb-ext-d').value)
     };
+
     dbFuncionales[atleta] = datos;
     await sbGuardarFuncional(atleta, datos);
     syncLocalStorage();
@@ -1216,10 +1134,12 @@
 
   function cargarScreeningEnPantalla() {
     let atleta = document.getElementById('eval-alumno-select').value;
-    if(document.body.classList.contains('mode-alumno')) { atleta = usuarioLogueadoActual; }
+    if(document.body.classList.contains('mode-alumno')) {
+      atleta = usuarioLogueadoActual;
+    }
     if(!atleta || !dbFuncionales[atleta]) return;
-
     const data = dbFuncionales[atleta];
+
     document.getElementById('fms-ohs').value = data.ohs || 3;
     document.getElementById('fms-sls-i').value = data.sls_i || 3;
     document.getElementById('fms-sls-d').value = data.sls_d || 3;
@@ -1240,50 +1160,63 @@
     document.getElementById('fms-homb-ext-d').value = data.homb_ext_d || 3;
   }
 
-  // PROTOCOLO INTERMITENTE 5X5
-  async function calcularYGuardarFatiga5x5() {
-    const atleta = document.getElementById('eval-alumno-select').value; if(!atleta) return;
-    const repsD = ['f-d-r1','f-d-r2','f-d-r3','f-d-r4','f-d-r5'].map(id => parseFloat(document.getElementById(id).value)||0);
-    const mejorD = Math.max(...repsD); const peorD = Math.min(...repsD);
-    const fIndexD = mejorD > 0 ? ((mejorD - peorD) / mejorD) * 100 : 0;
-    const repsI = ['f-i-r1','f-i-r2','f-i-r3','f-i-r4','f-i-r5'].map(id => parseFloat(document.getElementById(id).value)||0);
-    const mejorI = Math.max(...repsI); const peorI = Math.min(...repsI);
-    const fIndexI = mejorI > 0 ? ((mejorI - peorI) / mejorI) * 100 : 0;
+  // Análisis de Fatiga Neuromuscular (Intermitente 5x5)
+  function calcularYGuardarFatiga5x5() {
+    const atleta = document.getElementById('eval-alumno-select').value;
+    if(!atleta) return;
+
+    const d1 = parseFloat(document.getElementById('f-d-r1').value)||0, d5 = parseFloat(document.getElementById('f-d-r5').value)||0;
+    const i1 = parseFloat(document.getElementById('f-i-r1').value)||0, i5 = parseFloat(document.getElementById('f-i-r5').value)||0;
+
+    const fatD = d1 > 0 ? ((d1 - d5) / d1) * 100 : 0;
+    const fatI = i1 > 0 ? ((i1 - i5) / i1) * 100 : 0;
+
+    document.getElementById('fat-d-porcentaje').innerText = `${Math.max(0, fatD).toFixed(1)}%`;
+    document.getElementById('fat-i-porcentaje').innerText = `${Math.max(0, fatI).toFixed(1)}%`;
     document.getElementById('resultado-fatiga-completo').style.display = 'block';
-    document.getElementById('fat-d-porcentaje').innerText = `${fIndexD.toFixed(1)}%`;
-    document.getElementById('fat-i-porcentaje').innerText = `${fIndexI.toFixed(1)}%`;
-    const evalObj = { tipo: 'Test Fatiga 5x5s', gesto: 'Miembros Inferiores', metricas: `D: ${mejorD}kg | I: ${mejorI}kg`, diagnostico: `Fatiga D: ${fIndexD.toFixed(1)}% | I: ${fIndexI.toFixed(1)}%` };
+
+    const evalObj = {
+      tipo: 'Fatiga 5x5s',
+      gesto: 'Intermitente CNC',
+      metricas: `Drop D:${fatD.toFixed(1)}% I:${fatI.toFixed(1)}%`,
+      diagnostico: `Pérdida de Potencia Mecánica en Miembro Dominante.`
+    };
+
     if(!dbEvaluaciones[atleta]) dbEvaluaciones[atleta] = [];
     dbEvaluaciones[atleta].push({ fecha: new Date().toLocaleDateString('es-AR'), ...evalObj });
-    await sbGuardarEvaluacion(atleta, evalObj);
-    syncLocalStorage(); cargarHistorialEvaluacionesAtleta();
+    
+    sbGuardarEvaluacion(atleta, evalObj);
+    syncLocalStorage();
+    cargarHistorialEvaluacionesAtleta();
   }
 
   function cargarHistorialEvaluacionesAtleta() {
     let atleta = document.getElementById('eval-alumno-select').value;
-    if(document.body.classList.contains('mode-alumno')) { atleta = usuarioLogueadoActual; }
-    const tbody = document.getElementById('tabla-historial-eval');
+    if(document.body.classList.contains('mode-alumno')) {
+      atleta = usuarioLogueadoActual;
+    }
+    const tbody = document.getElementById('tabla-historial-evaluaciones');
+    if(!tbody) return;
+    tbody.innerHTML = '';
     if(!atleta || !dbEvaluaciones[atleta] || dbEvaluaciones[atleta].length === 0) {
-      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Sin registros históricos.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Sin historial para este deportista.</td></tr>`;
       return;
     }
-    // E3 — Una sola asignación a innerHTML en lugar de += por cada registro
-    tbody.innerHTML = dbEvaluaciones[atleta].map(ev =>
-      `<tr><td>${ev.fecha}</td><td><span class="badge badge-info">${ev.tipo}</span></td><td><b>${ev.gesto}</b></td><td>${ev.metricas}</td><td>${ev.diagnostico}</td></tr>`
-    ).join('');
+    dbEvaluaciones[atleta].forEach(ev => {
+      tbody.innerHTML += `<tr><td>${ev.fecha}</td><td><span class="badge badge-info">${ev.tipo}</span></td><td>${ev.gesto}</td><td>font-mono ${ev.metricas}</td><td>${ev.diagnostico}</td></tr>`;
+    });
   }
 
-  // CALENDARIO DE MONITOREO INTERACTIVO
-  function buildCurrentMonthCalendar() {
-    const grid = document.getElementById('calendar-current-month-grid');
-    const title = document.getElementById('calendar-current-month-title');
-    if(!grid) return;
+  // Estructura del Calendario RPE
+  function renderCalendarStructure() {
+    const grid = document.getElementById('calendar-days-grid-target');
+    const title = document.getElementById('calendar-month-year-title');
+    if(!grid || !title) return;
     grid.innerHTML = '';
 
     const ahora = new Date();
-    const anioActual = ahora.getFullYear();
     const mesActualIdx = ahora.getMonth();
-    
+    const anioActual = ahora.getFullYear();
     const mesesNombres = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     title.innerText = `${mesesNombres[mesActualIdx]} ${anioActual}`;
 
@@ -1291,12 +1224,12 @@
     const offset = primerDia === 0 ? 6 : primerDia - 1;
     const diasEnMes = new Date(anioActual, mesActualIdx + 1, 0).getDate();
 
-    for (let empty = 0; empty < offset; empty++) { grid.innerHTML += `<div class="day-cell empty"></div>`; }
+    for (let empty = 0; empty < offset; empty++) {
+      grid.innerHTML += `<div class="day-cell empty"></div>`;
+    }
 
     for (let d = 1; d <= diasEnMes; d++) {
       const dateKey = `${anioActual}-${mesActualIdx + 1}-${d}`;
-      // B6 — "clases" iniciaba como "day-cell" y el template ya ponía class="day-cell ...",
-      // resultando en class="day-cell day-cell [today]". Ahora solo se agrega la clase extra si aplica.
       const extraClass = (d === ahora.getDate()) ? ' today' : '';
       grid.innerHTML += `<div class="day-cell${extraClass}" id="cal-day-${dateKey}" onclick="selectCalendarDay('${dateKey}')">${d}</div>`;
     }
@@ -1304,9 +1237,9 @@
   }
 
   function selectCalendarDay(dateKey) {
-    if(celdaSeleccionada) { 
+    if(celdaSeleccionada) {
       const elem = document.getElementById(`cal-day-${celdaSeleccionada}`);
-      if(elem) elem.style.borderColor = 'transparent'; 
+      if(elem) elem.style.borderColor = 'transparent';
     }
     celdaSeleccionada = dateKey;
     const actual = document.getElementById(`cal-day-${dateKey}`);
@@ -1315,61 +1248,82 @@
 
   async function registrarAsistenciaConRPE() {
     let atleta = document.getElementById('plan-alumno-assigned').value;
-    if(document.body.classList.contains('mode-alumno')) { atleta = usuarioLogueadoActual; }
-    if(!celdaSeleccionada) { alert("Seleccione un casillero del mes."); return; }
-    const rpeValue = document.getElementById('borg-select-value').value;
+    if(document.body.classList.contains('mode-alumno')) {
+      atleta = usuarioLogueadoActual;
+    }
+    if(!celdaSeleccionada) { alert('Seleccioná un día del calendario.'); return; }
+    if(!atleta) return;
+
     if(!dbAsistencias[atleta]) dbAsistencias[atleta] = {};
-    const asistObj = { asistido: true, rpe: rpeValue, notas: '' };
+    const asistObj = {
+      asistido: true,
+      rpe: document.getElementById('asist-rpe-select').value,
+      notas: document.getElementById('asist-notas').value.trim()
+    };
     dbAsistencias[atleta][celdaSeleccionada] = asistObj;
+    
     await sbGuardarAsistencia(atleta, celdaSeleccionada, asistObj);
-    syncLocalStorage(); refreshCalendarViewForAthlete(); renderDashboardAnalytics();
-    alert("✅ Esfuerzo del día registrado y sincronizado.");
+    syncLocalStorage();
+    refreshCalendarViewForAthlete();
+    renderDashboardAnalytics();
+    alert("Presente y RPE registrados.");
+  }
+
+  async function registrarAusencia() {
+    let atleta = document.getElementById('plan-alumno-assigned').value;
+    if(document.body.classList.contains('mode-alumno')) {
+      atleta = usuarioLogueadoActual;
+    }
+    if(!celdaSeleccionada) { alert('Seleccioná un día del calendario.'); return; }
+    if(!atleta) return;
+
+    if(!dbAsistencias[atleta]) dbAsistencias[atleta] = {};
+    const asistObj = { asistido: false, rpe: 0,  notas: 'Falta Declarada' };
+    dbAsistencias[atleta][celdaSeleccionada] = asistObj;
+    
+    await sbGuardarAsistencia(atleta, celdaSeleccionada, asistObj);
+    syncLocalStorage();
+    refreshCalendarViewForAthlete();
+    renderDashboardAnalytics();
+    alert("Ausencia asentada.");
   }
 
   function refreshCalendarViewForAthlete() {
-    document.querySelectorAll('.day-cell').forEach(c => c.classList.remove('attended'));
     let atleta = document.getElementById('plan-alumno-assigned').value;
-    if(document.body.classList.contains('mode-alumno')) { atleta = usuarioLogueadoActual; }
+    if(document.body.classList.contains('mode-alumno')) {
+      atleta = usuarioLogueadoActual;
+    }
     if(!atleta || !dbAsistencias[atleta]) return;
-
-    Object.keys(dbAsistencias[atleta]).forEach(dateKey => {
-      if(dbAsistencias[atleta][dateKey].asistido) {
-        const celda = document.getElementById(`cal-day-${dateKey}`);
-        if(celda) { celda.classList.add('attended'); }
+    Object.keys(dbAsistencias[atleta]).forEach(k => {
+      const cell = document.getElementById(`cal-day-${k}`);
+      if(cell) {
+        if(dbAsistencias[atleta][k].asistido) {
+          cell.className = 'day-cell attended';
+          cell.innerHTML = `${k.split('-')[2]} <span style="font-size:9px; display:block; opacity:0.8;">RPE ${dbAsistencias[atleta][k].rpe}</span>`;
+        } else {
+          cell.style.background = 'rgba(255,82,82,0.15)';
+          cell.style.color = 'var(--accent-red)';
+        }
       }
     });
   }
 
-  // MODELADO AUTOMÁTICO DE ENTORNO
+  // Modelado Estadístico y Alertas Biomecánicas del Dashboard
   function renderDashboardAnalytics() {
-    let hayAsistenciasReales = false;
-    let rpeData = [0, 0, 0, 0];
-    let counts = [0, 0, 0, 0];
-
-    dbAlumnos.forEach(al => {
-      if (dbAsistencias[al.nombre]) {
-        Object.keys(dbAsistencias[al.nombre]).forEach(k => {
-          const item = dbAsistencias[al.nombre][k];
-          if(item && item.asistido) {
-            hayAsistenciasReales = true;
-            const dia = parseInt(k.split('-')[2]) || 1;
-            const idx = Math.min(3, Math.floor((dia - 1) / 7));
-            rpeData[idx] += parseFloat(item.rpe);
-            counts[idx]++;
-          }
-        });
-      }
-    });
-
     const boxAlertas = document.getElementById('dashboard-alertas');
+    if(!boxAlertas) return;
     boxAlertas.innerHTML = '';
-    let contAlertas = 0;
 
+    let contAlertas = 0;
     dbAlumnos.forEach(al => {
       const f = dbFuncionales[al.nombre];
       if(f) {
+        if(f.ohs === 1) {
+          boxAlertas.innerHTML += `<p style='margin-bottom:8px; font-size:13px;'><span class='badge badge-danger'>OHS</span> <b>${al.nombre}</b>: Restricción severa de movilidad torácica o tobillo.</p>`;
+          contAlertas++;
+        }
         if(Math.abs(f.sls_i - f.sls_d) >= 1) {
-          boxAlertas.innerHTML += `<p style='margin-bottom:8px; font-size:13px;'><span class='badge badge-danger'>Asimetría SLS</span> <b>${al.nombre}</b>: Desbalance de Estabilidad Lumbo-Pélvica (Sentadilla Unipodal).</p>`;
+          boxAlertas.innerHTML += `<p style='margin-bottom:8px; font-size:13px;'><span class='badge badge-warning'>Asimetría SLS</span> <b>${al.nombre}</b>: Inestabilidad lateral de rodilla en monopodal.</p>`;
           contAlertas++;
         }
         if(Math.abs(f.thomas_i - f.thomas_d) >= 1) {
@@ -1381,77 +1335,115 @@
           contAlertas++;
         }
         if(f.isq_i === 2 || f.isq_d === 2) {
-          boxAlertas.innerHTML += `<p style='margin-bottom:8px; font-size:13px;'><span class='badge badge-warning'>Cadena Posterior</span> <b>${al.nombre}</b>: Acortamiento de Isquiosurales en Extensión.</p>`;
+          boxAlertas.innerHTML += `<p style='margin-bottom:8px; font-size:13px;'><span class='badge badge-warning'>Cadena Posterior</span> <b>${al.nombre}</b>: Acortamiento de isquiotibiales con riesgo de desgarro.</p>`;
           contAlertas++;
         }
       }
     });
 
     if(contAlertas === 0) {
-      boxAlertas.innerHTML = `<p style="color:var(--text-muted); font-size:13px; font-family:var(--font-mono); text-align:center; padding:40px 0;">Cadenas miofasciales estables. Sin alertas críticas.</p>`;
+      boxAlertas.innerHTML = `<p style="color:var(--text-muted); font-size:13px; font-family:var(--font-mono); text-align:center; padding:40px 0;">Sistemas equilibrados. No se detectan anomalías cinemáticas de riesgo.</p>`;
     }
 
-    if(!hayAsistenciasReales) {
-      document.getElementById('dash-chart-placeholder').style.display = 'block';
-      document.getElementById('chartAsistencia').style.display = 'none';
-      return;
-    }
+    let labels = [];
+    let rpeData = [];
+    let asistCount = 0;
 
-    document.getElementById('dash-chart-placeholder').style.display = 'none';
-    document.getElementById('chartAsistencia').style.display = 'block';
-
-    const finalData = rpeData.map((val, i) => counts[i] > 0 ? (val / counts[i]) : 10);
-
-    if(globalChartInstance) globalChartInstance.destroy();
-    globalChartInstance = new Chart(document.getElementById('chartAsistencia').getContext('2d'), {
-      type: 'line', 
-      data: { 
-        labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'], 
-        datasets: [{ 
-          label: 'Índice de Carga Interna (Borg RPE Promedio)', 
-          data: finalData, 
-          borderColor: '#f47920', 
-          backgroundColor: 'rgba(244,121,32,0.05)',
-          tension: 0.3,
-          fill: true
-        }] 
-      },
-      options: { 
-        responsive: true, 
-        maintainAspectRatio: false,
-        scales: { y: { min: 6, max: 20 } }
+    dbAlumnos.forEach(al => {
+      if(dbAsistencias[al.nombre]) {
+        Object.keys(dbAsistencias[al.nombre]).forEach(k => {
+          if(dbAsistencias[al.nombre][k].asistido) {
+            labels.push(`${al.nombre} (Díia ${k.split('-')[2]})`);
+            rpeData.push(dbAsistencias[al.nombre][k].rpe);
+            asistCount++;
+          }
+        });
       }
     });
+
+    const ph = document.getElementById('dash-chart-placeholder');
+    const cv = document.getElementById('chartAsistencia');
+    if(!ph || !cv) return;
+
+    if(asistCount === 0) {
+      ph.style.display = 'block';
+      cv.style.display = 'none';
+    } else {
+      ph.style.display = 'none';
+      cv.style.display = 'block';
+
+      if(globalChartInstance) globalChartInstance.destroy();
+      globalChartInstance = new Chart(cv.getContext('2d'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Carga Externa (RPE Declarado)',
+            data: rpeData,
+            borderColor: '#f47920',
+            backgroundColor: 'rgba(244,121,32,0.08)',
+            borderWidth: 2,
+            tension: 0.2,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { min:0, max:10, grid:{color:'rgba(255,255,255,0.05)'}, ticks:{color:'#8e8e9c'} },
+            x: { grid:{display:false}, ticks:{color:'#8e8e9c'} }
+          },
+          plugins: { legend:{display:false} }
+        }
+      });
+    }
   }
 
-  function openVideoModal(name) {
-    document.getElementById('modal-video-reproductor').style.display = 'flex';
-    document.getElementById('video-modal-title').innerText = `Análisis Técnico: ${name}`;
-    document.getElementById('video-modal-desc').innerText = "Ejecutar la fase concéntrica a la máxima velocidad posible intencional para reclutar unidades de motor de umbral alto.";
-  }
-  
-  function closeVideoModal() { document.getElementById('modal-video-reproductor').style.display = 'none'; }
-
+  // Rieles de Navegación del Entorno (Vistas)
   function switchView(viewId) {
-    // B1 — El substring(0,4) anterior mapeaba 'calendario' → 'cale', buscando id="nav-cale" que no existía.
-    // E1 — Mapa explícito: elimina el acoplamiento frágil; cualquier cambio de nombre es visible aquí.
     const NAV_MAP = {
-      dashboard:       'nav-dash',
-      alumnos:         'nav-alum',
+      dashboard: 'nav-dash',
+      alumnos: 'nav-alum',
       planificaciones: 'nav-plan',
-      evaluaciones:    'nav-eval',
-      calendario:      'nav-cal'
+      evaluaciones: 'nav-eval',
+      calendario: 'nav-cal'
     };
     document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-menu .nav-item').forEach(i => i.classList.remove('active'));
+    
     const sec = document.getElementById('view-' + viewId);
     if(sec) sec.classList.add('active');
     const nav = document.getElementById(NAV_MAP[viewId]);
     if(nav) nav.classList.add('active');
   }
 
+  function switchSubTab(tabId) {
+    document.querySelectorAll('#view-evaluaciones .tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('#view-evaluaciones .tab-btn').forEach(b => b.classList.remove('active'));
+    
+    const targetContent = document.getElementById('tab-' + tabId);
+    if(targetContent) targetContent.classList.add('active');
+    const targetBtn = document.getElementById('btn-tab-' + tabId);
+    if(targetBtn) targetBtn.classList.add('active');
+  }
+
+  // Controladores de Ventana Emergente Multimedia (Video Modal)
+  function openVideoModal(ejercicioNombre) {
+    document.getElementById('video-modal-title').innerText = "Ejecución: " + ejercicioNombre;
+    const container = document.getElementById('video-embed-container');
+    container.innerHTML = `<span style="font-family:var(--font-mono); color:var(--accent-orange); font-size:13px;">[ VIDEO FEED: DEMO ${ejercicioNombre.toUpperCase()} ]</span>`;
+    document.getElementById('app-video-modal').style.display = 'flex';
+  }
+
+  function closeVideoModal() {
+    document.getElementById('app-video-modal').style.display = 'none';
+  }
+
+  // Inicialización de Recursos de Ciclo de Vida al Cargar la Página
   window.onload = async () => {
-    // Verificar si hay sesión activa de Supabase (persiste entre recargas de página)
+    cargarCacheLocal();
+    refreshSystemUI();
+    
     const { data: { session } } = await _sb.auth.getSession();
     if (session) {
       coachUserId = session.user.id;
@@ -1459,15 +1451,14 @@
       document.body.classList.remove('mode-alumno');
       document.body.classList.add('mode-coach');
       document.getElementById('role-display-status').innerText = "👑 ENTORNO DE TRABAJO: ENTRENADOR DE ALTO RENDIMIENTO";
-      document.getElementById('label-user-logged').innerText   = "Profesor: Franco Flores";
+      document.getElementById('label-user-logged').innerText = "Profesor: Franco Flores";
       document.getElementById('app-login-screen').style.display = 'none';
       await cargarDatosDesdeSupabase();
     } else {
-      // Sin sesión de coach — cargar caché local para que atletas puedan ingresar
-      cargarCacheLocal();
+      document.getElementById('role-display-status').innerText = '🔐 SESIÓN NO INICIADA';
+      document.getElementById('label-user-logged').innerText = '';
+      document.getElementById('app-login-screen').style.display = 'flex';
     }
-    actualizarEntornoDeDatos();
-    renderAlumnosTable();
   };
 </script>
 </body>
