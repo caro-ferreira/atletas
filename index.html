@@ -719,53 +719,69 @@
   }
 
   // Control de Acceso y Gestión de Perfiles (Coach / Alumno)
-  async function ejecutarAutenticacionFiltro(e) {
-    e.preventDefault();
-    const input = document.getElementById('login-user').value.trim();
-    const pass = document.getElementById('login-pass').value.trim();
-    const body = document.body;
-    const btn = e.submitter;
-    if (btn) { btn.disabled = true; btn.innerText = 'Verificando...'; }
+  // AUTENTICACIÓN CONTROL
+async function ejecutarAutenticacionFiltro(e) {
+  e.preventDefault();
+  const input = document.getElementById('login-user').value.trim();
+  const pass = document.getElementById('login-pass').value.trim();
+  const body = document.body;
+  const btn = e.submitter;
 
-    if (input.includes('@')) {
-      const { data, error } = await _sb.auth.signInWithPassword({ email: input, password: pass });
-      if (error || !data.user) {
-        alert('Email o contraseña incorrectos.');
-        if (btn) { btn.disabled = false; btn.innerText = 'Acceder al Sistema'; }
-        return;
-      }
-      coachUserId = data.user.id;
-      usuarioLogueadoActual = "Franco Flores";
-      body.classList.remove('mode-alumno');
-      body.classList.add('mode-coach');
-      document.getElementById('role-display-status').innerText = "👑 ENTORNO DE TRABAJO: ENTRENADOR DE ALTO RENDIMIENTO";
-      document.getElementById('label-user-logged').innerText = "Profesor: Franco Flores";
-      document.getElementById('app-login-screen').style.display = 'none';
-      await cargarDatosDesdeSupabase();
-    } else {
-      if (pass !== "atleta") {
-        alert("Contraseña de atleta inválida.");
-        if (btn) { btn.disabled = false; btn.innerText = 'Acceder al Sistema'; }
-        return;
-      }
-      const match = dbAlumnos.find(a => a.nombre.toLowerCase() === input.toLowerCase());
-      if (!match) {
-        alert("Atleta no encontrado en caché local. Por favor, logueate primero como Coach para refrescar la base de datos.");
-        if (btn) { btn.disabled = false; btn.innerText = 'Acceder al Sistema'; }
-        return;
-      }
-      usuarioLogueadoActual = match.nombre;
-      body.classList.remove('mode-coach');
-      body.classList.add('mode-alumno');
-      document.getElementById('role-display-status').innerText = `🏃 DEPORTISTA: ${usuarioLogueadoActual.toUpperCase()}`;
-      document.getElementById('label-user-logged').innerText = `Atleta: ${usuarioLogueadoActual}`;
-      document.getElementById('app-login-screen').style.display = 'none';
-      refreshSystemUI();
-      switchView('planificaciones');
-    }
-    if (btn) { btn.disabled = false; btn.innerText = 'Acceder al Sistema'; }
+  if (btn) {
+    btn.disabled = true;
+    btn.innerText = 'Verificando...';
   }
 
+  // ── COACH: login con email via Supabase Auth
+  if (input.includes('@')) {
+    const { data, error } = await _sb.auth.signInWithPassword({ email: input, password: pass });
+    if (error || !data.user) {
+      alert('Email o contraseña incorrectos.');
+      if (btn) {
+        btn.disabled = false;
+        btn.innerText = 'Acceder al Sistema';
+      }
+      return;
+    }
+    coachUserId = data.user.id;
+    usuarioLogueadoActual = "Franco Flores";
+    body.classList.remove('mode-alumno');
+    body.classList.add('mode-coach');
+    document.getElementById('role-display-status').innerText = "👑 ENTORNO DE TRABAJO: ENTRENADOR DE ALTO RENDIMIENTO";
+    document.getElementById('label-user-logged').innerText   = "Profesor: Franco Flores";
+    document.getElementById('app-login-screen').style.display = 'none';
+    await cargarDatosDesdeSupabase();
+  } 
+  // ── ATLETA: login por coincidencia de Nombre
+  else {
+    const atletaEncontrado = dbAlumnos.find(a => a.nombre.toLowerCase() === input.toLowerCase());
+    if (!atletaEncontrado || pass !== "1234") {
+      alert('Atleta no encontrado o contraseña de acceso incorrecta genérica.');
+      if (btn) {
+        btn.disabled = false;
+        btn.innerText = 'Acceder al Sistema';
+      }
+      return;
+    }
+    usuarioLogueadoActual = atletaEncontrado.nombre;
+    body.classList.remove('mode-coach');
+    body.classList.add('mode-alumno');
+    document.getElementById('role-display-status').innerText = `🏃 ENTORNO DE ATLETA: ${usuarioLogueadoActual.toUpperCase()}`;
+    document.getElementById('label-user-logged').innerText   = `Atleta: ${usuarioLogueadoActual}`;
+    document.getElementById('app-login-screen').style.display = 'none';
+    
+    // Configurar vistas automáticas para el alumno
+    if(typeof renderPlanDaysUI === 'function') renderPlanDaysUI();
+    if(typeof cargarPlanDeAtletaSeleccionado === 'function') cargarPlanDeAtletaSeleccionado();
+    if(typeof cargarScreeningEnPantalla === 'function') cargarScreeningEnPantalla();
+    if(typeof renderCalendarioDOM === 'function') renderCalendarioDOM();
+  }
+
+  if (btn) {
+    btn.disabled = false;
+    btn.innerText = 'Acceder al Sistema';
+  }
+}
   async function cerrarSesionPlataforma() {
     await _sb.auth.signOut();
     coachUserId = null;
